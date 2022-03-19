@@ -1,0 +1,15 @@
+#selectAllBoxes{
+margin-top: 18px;
+/* width: 0px; */
+/* height: 43px; */
+/* size: 45px; */
+/* font-size: 112%; */
+transform: scale(1.5);
+margin-left: 11px;
+}
+
+.span_delete{
+    margin-left: 16px;
+}
+
+
