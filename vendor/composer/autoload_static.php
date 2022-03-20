@@ -536,6 +536,7 @@ class ComposerStaticInit46a2db0aa7bfd7589272f7647489a061
         'App\\Category' => __DIR__ . '/../..' . '/app/Category.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Country' => __DIR__ . '/../..' . '/app/Country.php',
+        'App\\EcommerceProduct' => __DIR__ . '/../..' . '/app/EcommerceProduct.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\AjaxCrudController' => __DIR__ . '/../..' . '/app/Http/Controllers/AjaxCrudController.php',
         'App\\Http\\Controllers\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/AuthController.php',
