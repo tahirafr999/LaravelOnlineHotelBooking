@@ -25,14 +25,8 @@
                 </div>
                 <!-- /.form-group -->
                   <div class="form-group">
-                  <label>Product Title</label>
+                  <label>Product Author</label>
                   <input type="text" class="form-control" name="product_author" id="product_author" placeholder="Enter Product Author">
-                  <small class="form-text text-muted error-text hotel_title_error"></small>
-                </div>
-                <!-- /.form-group -->
-                <div class="form-group">
-                  <label>Product Category</label>
-                  <input type="text" class="form-control" name="product_category" id="product_category" placeholder="Enter Product Category">
                   <small class="form-text text-muted error-text hotel_title_error"></small>
                 </div>
                 <!-- /.form-group -->
@@ -45,17 +39,21 @@
               </div>
               <!-- /.col -->
               <div class="col-md-6">
+              <div class="form-group">
+                  <label>Product Price</label>
+                  <input type="text" class="form-control" name="product_price" id="product_price" placeholder="Enter Product Price">
+                  <small class="form-text text-muted error-text hotel_title_error"></small>
+                </div>
+                <!-- /.form-group -->
                 <div class="form-group">
-                  <label>Multiple</label>
-                  <select class="select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
-                    <option>Alabama</option>
-                    <option>Alaska</option>
-                    <option>California</option>
-                    <option>Delaware</option>
-                    <option>Tennessee</option>
-                    <option>Texas</option>
-                    <option>Washington</option>
-                  </select>
+                  <label>Product Category</label>
+                  <input type="text" class="form-control" name="product_category" id="product_category" placeholder="Enter Product Category">
+                  <small class="form-text text-muted error-text hotel_title_error"></small>
+                </div>
+                <!-- /.form-group -->
+                <div class="form-group">
+                  <label>Product Description</label>
+                 <textarea name="product_description" class="form-control" id="" cols="10" rows="1"></textarea>
                 </div>
                 <!-- /.form-group -->
               </div>
