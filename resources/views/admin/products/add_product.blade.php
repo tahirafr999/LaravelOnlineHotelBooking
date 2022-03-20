@@ -17,7 +17,7 @@
           <div class="card-body">
             <div class="row">
               <div class="col-md-6">
-                <form action="">
+               <form action="" method="POST" id="data-form">
                 <div class="form-group">
                   <label>Product Title</label>
                   <input type="text" class="form-control" name="product_title" id="product_title" placeholder="Enter Product title">
@@ -65,7 +65,7 @@
           </div>
           <!-- /.card-body -->
           <div class="card-footer">
-           <button class="btn btn-primary btn-block">Submit</button>
+           <button type="submit" id="data_form" class="btn btn-primary btn-block">Submit</button>
           </div>
         </div>
         <!-- /.card -->
@@ -74,3 +74,75 @@
     <!-- /.content -->
     <!-- add product form end here -->
 @endsection
+<script src="{{ asset('jquery/jquery-3.6.0.min.js') }}"></script>
+
+<script>
+   $(document).ready(function(){
+     $.ajaxSetup({
+             headers:{
+                 'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+             }
+         });
+ 
+    $(document).on('click', '#data_form', function(e){
+      e.preventDefault();
+      let formData = new FormData($('#data-form')[0]);
+      $.ajax({
+        type:"POST",
+        url:"/add-Ecommerce-product",
+        data:formData,
+        contentType:false,
+        processData:false,
+        success: function(response){
+        $("#data-form")[0].reset(); 
+        toastr.success(response.message);
+
+          // if(response.status == 400){
+          //   $('#save_errorList').html("");
+          //   $('#save_errorList').removeClass('d-none');
+          //   $.each(response.errors, function(key, err_value){
+          //     $('#save_errorList').append('<li>'+err_value+'</li>');
+          //   });
+          // }else if(response.status == 200){
+          //   $('#save_errorList').html("");
+          //   $('#save_errorList').addClass('d-none');
+          //   $("#data-form")[0].reset();
+          //   // alert(response.message);
+          //   toastr.success(response.message);
+          // }
+
+        }
+      });
+    });
+  });
+  // $(function() {
+  //   $('#submit_button').on('click', function(e){
+  //     e.preventDefault();
+  //    var form = this;
+  //    $.ajax({
+  //      url: $(form).attr('action'),
+  //      method:$(form).attr('method'),
+  //      data:new FormData(form),
+  //      processData:false,
+  //      dataType:'json',
+  //      contentType:false,
+  //      beforeSend function(){
+  //       $(form).find('small.error-text').text('');
+  //      },
+  //      success function(data){
+  //       if(data.code == 0){
+  //         $.each(data.error, function(prefix,val){
+  //           $(form).find('small.'+prefix+'_error').text(val[0]);
+  //         });
+  //       }else{
+  //         $(from)[0].reset();
+  //         alert('submiot');
+  //       }
+  //      }
+  //    });
+
+  //   });
+
+    
+  // })
+</script>

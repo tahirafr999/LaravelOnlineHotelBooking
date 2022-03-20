@@ -7,7 +7,7 @@ use App\Http\Controllers\productController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\AuthController;
-
+use App\Http\Controllers\EcommerceProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,6 +32,8 @@ Route::get('Show_dashboard',function(){
 });
 
 
+// Ecommerce Product
+Route::post('/add-Ecommerce-product',[EcommerceProductController::class,'addEcommerceProduct']);
 
 
     // products
