@@ -91,7 +91,7 @@
     <div class="form-group">
       <label>Category Name</label>
       <input class="form-control" type="text" name="cat_name">
-        <!-- <span class="text-danger">@error('cat_name') {{$message}} @enderror</span> -->
+        <span class="text-danger">@error('cat_name') {{$message}} @enderror</span>
     </div>
         </form>
       </div>

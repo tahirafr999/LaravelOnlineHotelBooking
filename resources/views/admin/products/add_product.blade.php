@@ -13,6 +13,7 @@
               <!-- <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button> -->
             </div>
           </div>
+          <!-- <ul class="alert alert-warning d-none" id="save_errorList"></ul> -->
           <!-- /.card-header -->
           <div class="card-body">
             <div class="row">
@@ -20,8 +21,8 @@
                <form action="" method="POST" id="data-form">
                 <div class="form-group">
                   <label>Product Title</label>
-                  <input type="text" class="form-control" name="product_title" id="product_title" placeholder="Enter Product title">
-                  <small class="form-text text-muted error-text hotel_title_error"></small>
+                  <input type="text" class="form-control" name="product_title" id="product_title"  placeholder="Enter Product title">
+                  <small class="form-text text-muted error-text hotel_title_error">@error('product_title'){{$message}}@enderror</small>
                 </div>
                 <!-- /.form-group -->
                   <div class="form-group">
@@ -94,22 +95,21 @@
         contentType:false,
         processData:false,
         success: function(response){
-        $("#data-form")[0].reset(); 
-        toastr.success(response.message);
+       
 
-          // if(response.status == 400){
-          //   $('#save_errorList').html("");
-          //   $('#save_errorList').removeClass('d-none');
-          //   $.each(response.errors, function(key, err_value){
-          //     $('#save_errorList').append('<li>'+err_value+'</li>');
-          //   });
-          // }else if(response.status == 200){
-          //   $('#save_errorList').html("");
-          //   $('#save_errorList').addClass('d-none');
-          //   $("#data-form")[0].reset();
+          if(response.status == 400){
+            $('#save_errorList').html("");
+            $('#save_errorList').removeClass('d-none');
+            $.each(response.message, function(key, err_value){
+              $('#save_errorList').append('<li>'+err_value+'</li>');
+            });
+          }else if(response.status == 200){
+            $('#save_errorList').html("");
+            $('#save_errorList').addClass('d-none');
+            $("#data-form")[0].reset();
           //   // alert(response.message);
-          //   toastr.success(response.message);
-          // }
+            toastr.success(response.message);
+          }
 
         }
       });
