@@ -21,8 +21,10 @@
                <form action="" method="POST" id="data-form">
                 <div class="form-group">
                   <label>Product Title</label>
-                  <input type="text" class="form-control" name="product_title" id="product_title"  placeholder="Enter Product title">
-                  <small class="form-text text-muted error-text hotel_title_error">@error('product_title'){{$message}}@enderror</small>
+                  <input type="text" class="form-control @error('product_title') is-invalid @enderror " name="product_title" id="product_title"  placeholder="Enter Product title">
+                  <small class="form-text text-muted error-text hotel_title_error"></small>
+
+
                 </div>
                 <!-- /.form-group -->
                   <div class="form-group">
@@ -94,6 +96,9 @@
         data:formData,
         contentType:false,
         processData:false,
+        beforeSend:function(){
+                             $(formData).find('small.error-text').text('');
+                        },
         success: function(response){
        
 

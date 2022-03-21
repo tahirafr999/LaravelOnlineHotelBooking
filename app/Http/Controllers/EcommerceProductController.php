@@ -17,7 +17,7 @@ class EcommerceProductController extends Controller
           if($validator->fails()){
             return response()->json([
                 'status'=>400,
-                'message'=>$validator->messages(),
+                'message'=>$validator->errors(),
             ]);
         }
         else{
