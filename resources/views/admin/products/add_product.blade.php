@@ -13,18 +13,22 @@
               <!-- <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button> -->
             </div>
           </div>
-          <!-- <ul class="alert alert-warning d-none" id="save_errorList"></ul> -->
+          <ul class="alert alert-warning d-none" id="save_errorList"></ul>
           <!-- /.card-header -->
           <div class="card-body">
             <div class="row">
               <div class="col-md-6">
                <form action="" method="POST" id="data-form">
+                @if(Session::has('success'))
+                <div class="alert alert-success">{{Session::get('success')}}</div>
+                @endif
+                @if(Session::has('fail'))
+                <div class="alert alert-danger">{{Session::get('fail')}}</div>
+                @endif
                 <div class="form-group">
                   <label>Product Title</label>
-                  <input type="text" class="form-control @error('product_title') is-invalid @enderror " name="product_title" id="product_title"  placeholder="Enter Product title">
-                  <small class="form-text text-muted error-text hotel_title_error"></small>
-
-
+                  <input type="text" class="form-control" name="product_title" id="product_title"  placeholder="Enter Product title">
+                  <small class="form-text text-muted error-text hotel_title_error">@error('product_title'){{$message}}@enderror</small>
                 </div>
                 <!-- /.form-group -->
                   <div class="form-group">
@@ -96,9 +100,6 @@
         data:formData,
         contentType:false,
         processData:false,
-        beforeSend:function(){
-                             $(formData).find('small.error-text').text('');
-                        },
         success: function(response){
        
 
@@ -107,6 +108,7 @@
             $('#save_errorList').removeClass('d-none');
             $.each(response.message, function(key, err_value){
               $('#save_errorList').append('<li>'+err_value+'</li>');
+              $('.error-text').append('<span>'+err_value+'</span>');
             });
           }else if(response.status == 200){
             $('#save_errorList').html("");
