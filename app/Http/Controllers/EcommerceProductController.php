@@ -11,11 +11,14 @@ class EcommerceProductController extends Controller
     public function addEcommerceProduct(Request $request){
         $validator = Validator::make($request->all(),[
             'product_title'=>'required|max:191',
+            'product_author'=>'required|max:191',
             'product_image'=>'required|image|mimes:jpeg,png,jpg|max:2048',
             'product_description'=>'required',
         ]);  
+
+        
           if($validator->fails()){
-            return response()->json([
+            return  response()->json([
                 'status'=>400,
                 'message'=>$validator->messages(),
             ]);

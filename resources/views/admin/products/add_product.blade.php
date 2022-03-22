@@ -13,28 +13,26 @@
               <!-- <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button> -->
             </div>
           </div>
-          <ul class="alert alert-warning d-none" id="save_errorList"></ul>
+          <!-- <ul class="alert alert-warning d-none" id="save_errorList"></ul> -->
           <!-- /.card-header -->
           <div class="card-body">
             <div class="row">
               <div class="col-md-6">
                <form action="" method="POST" id="data-form">
-                @if(Session::has('success'))
-                <div class="alert alert-success">{{Session::get('success')}}</div>
-                @endif
-                @if(Session::has('fail'))
-                <div class="alert alert-danger">{{Session::get('fail')}}</div>
-                @endif
                 <div class="form-group">
                   <label>Product Title</label>
                   <input type="text" class="form-control" name="product_title" id="product_title"  placeholder="Enter Product title">
-                  <small class="form-text text-muted error-text hotel_title_error">@error('product_title'){{$message}}@enderror</small>
+                 <div class="error_all">
+                 <small class="form-text text-muted error-text product_title_error" id="product_title_error"></small>
+                 
+                 </div>
+                  
                 </div>
                 <!-- /.form-group -->
                   <div class="form-group">
                   <label>Product Author</label>
                   <input type="text" class="form-control" name="product_author" id="product_author" placeholder="Enter Product Author">
-                  <small class="form-text text-muted error-text hotel_title_error"></small>
+                  <small class="form-text text-muted error-text hotel_title_error" id="product_author_error"></small>
                 </div>
                 <!-- /.form-group -->
                 <div class="form-group">
@@ -61,6 +59,8 @@
                 <div class="form-group">
                   <label>Product Description</label>
                  <textarea name="product_description" class="form-control" id="" cols="10" rows="1"></textarea>
+                 <small class="form-text text-muted error-text hotel_title_error" id="product_description_error"></small>
+
                 </div>
                 <!-- /.form-group -->
               </div>
@@ -101,20 +101,13 @@
         contentType:false,
         processData:false,
         success: function(response){
-       
-
           if(response.status == 400){
-            $('#save_errorList').html("");
-            $('#save_errorList').removeClass('d-none');
-            $.each(response.message, function(key, err_value){
-              $('#save_errorList').append('<li>'+err_value+'</li>');
-              $('.error-text').append('<span>'+err_value+'</span>');
+            $.each(response.message, function(key, val) {
+            $("#" + key + "_error").text(val[0]);
             });
           }else if(response.status == 200){
-            $('#save_errorList').html("");
-            $('#save_errorList').addClass('d-none');
             $("#data-form")[0].reset();
-          //   // alert(response.message);
+            $('.error-text').hide();
             toastr.success(response.message);
           }
 
