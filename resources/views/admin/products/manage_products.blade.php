@@ -7,37 +7,19 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
+                <table  class="table table-hover table-condensed" id="ProductTable">
                   <thead>
                   <tr>
                     <th>Product Title</th>
                     <th>Product Author</th>
-                    <th>Product Phote</th>
+                    <!-- <th>Product Phote</th> -->
                     <th>Product Category</th>
                     <th>Product Price</th>
                     <th>Product Description</th>
                     <th>Action</th>
-
-
-
-
-              
                   </tr>
                   </thead>
-                  <tbody>
-                  <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 4.0
-                    </td>
-                    <td>Trident</td>
-                    <td>Trident</td>
-                    <td>Trident</td>
-                    <td>Trident</td>
-                    <td><i class="fas fa-eye"></i></td>
-                
-                  </tr>
-                  </tbody>
+                  <tbody</tbody>
                   
                 </table>
               </div>
@@ -47,3 +29,28 @@
 
 
 @endsection
+<script src="{{ asset('jquery/jquery-3.6.0.min.js') }}"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+
+<script>
+
+    $(document).ready(function () {
+    //GET ALL COUNTRIES
+    $('#ProductTable').DataTable({
+                     processing:true,
+                     info:true,
+                     ajax:"{{ url('/product-display') }}",
+                     columns:[
+                         {data:'title', name:'product_title'},
+                         {data:'author', name:'product_author'},
+                         {data:'category', name:'product_category'},
+                         {data:'product_description', name:'product_description'},
+                         {data:'product_price', name:'product_category'},
+                         {data:'actions', name:'actions'}
+
+                     ]
+                        //GET ALL COUNTRIES
+                });
+
+              });
+</script>

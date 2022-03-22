@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use App\EcommerceProduct;
 use Validator;
+use DataTables;
 class EcommerceProductController extends Controller
 {
     public function addEcommerceProduct(Request $request){
@@ -47,4 +48,18 @@ class EcommerceProductController extends Controller
         }
 
     }
+
+    public function getAllProducts(){
+        $products = EcommerceProduct::all();
+        return DataTables::of($products)
+        ->addIndexColumn()
+        ->addColumn('actions', function($row){
+            return '<div class="btn-group">
+                          <button class="btn btn-sm btn-primary" data-id="'.$row['id'].'" id="editCountryBtn">Update</button>
+                          <button class="btn btn-sm btn-danger" data-id="'.$row['id'].'" id="deleteCountryBtn">Delete</button>
+                    </div>';
+        })
+        ->rawColumns(['actions'])
+                            ->make(true);
+        }
 }
