@@ -12,7 +12,7 @@
                   <tr>
                     <th>Product Title</th>
                     <th>Product Author</th>
-                    <!-- <th>Product Phote</th> -->
+                    <th>Product Phote</th>
                     <th>Product Category</th>
                     <th>Product Price</th>
                     <th>Product Description</th>
@@ -43,6 +43,11 @@
                      columns:[
                          {data:'title', name:'product_title'},
                          {data:'author', name:'product_author'},
+                         { targets: 2,
+      render: function(data) {
+        return '<img src="'+data+'">'
+      }},
+    
                          {data:'category', name:'product_category'},
                          {data:'product_description', name:'product_description'},
                          {data:'product_price', name:'product_category'},
