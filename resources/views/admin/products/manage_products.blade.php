@@ -26,7 +26,7 @@
             </div>
             <!-- /.card -->
 
-            <div class="modal fade editProductModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+     <div class="modal editProductModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -41,21 +41,36 @@
                      <input type="hidden" name="pid" id="pid">
                      <div class="form-group">
                          <label for="">Product Title</label>
-                         <input type="text" class="form-control" name="product_title" id="edit_product_title" placeholder="Enter country name">
+                         <input type="text" class="form-control" name="product_title" id="edit_product_title" >
                          <span class="text-danger error-text country_name_error"></span>
                      </div>
                      <div class="form-group">
                          <label for="">Product Author</label>
-                         <input type="text" class="form-control" name="product_author" id="edit_product_author" placeholder="Enter capital city">
+                         <input type="text" class="form-control" name="product_author" id="edit_product_author" >
                          <span class="text-danger error-text capital_city_error"></span>
                      </div>
-                     <div class="form-group">
+                     <!-- <div class="form-group">
                          <label for="">Product Image</label>
-                         <input type="text" class="form-control" name="product_author" id="edit_product_image" placeholder="Enter capital city">
+                         <input src="#" id="edit_product_image">
+                         <span class="text-danger error-text capital_city_error"></span>
+                     </div> -->
+                     <div class="form-group">
+                         <label for="">Product Category</label>
+                         <input type="text" class="form-control" name="product_category" id="edit_product_category" >
                          <span class="text-danger error-text capital_city_error"></span>
                      </div>
                      <div class="form-group">
-                         <button type="submit" class="btn btn-block btn-success">Save Changes</button>
+                         <label for="">Product Description</label>
+                         <input type="text" class="form-control" name="product_description" id="edit_product_description" >
+                         <span class="text-danger error-text capital_city_error"></span>
+                     </div>
+                     <div class="form-group">
+                         <label for="">Product Price</label>
+                         <input type="text" class="form-control" name="product_price" id="edit_product_price" >
+                         <span class="text-danger error-text capital_city_error"></span>
+                     </div>
+                     <div class="form-group">
+                         <button type="submit" class="btn btn-block btn-success saveChanges">Save Changes</button>
                      </div>
                  </form>
                 
@@ -114,12 +129,14 @@ $.ajaxSetup({
         success: function(response){
             if(response.status == 404){
                 // alert(response.message);
-                $('#editModal').modal('hide');
+                $('.editProductModel').modal('hide');
             }else{
                 $('#edit_product_title').val(response.details.title);
                 $('#edit_product_author').val(response.details.author);
-                
-                $('#edit_product_image').val(response.details.photo);
+                // $("#edit_product_image").attr('src', response.details.photo);
+                $('#edit_product_category').val(response.details.category);
+                $('#edit_product_description').val(response.details.product_description);
+                $('#edit_product_price').val(response.details.product_price);
                 $('#pid').val(pro_id);
             }
         }
@@ -127,5 +144,32 @@ $.ajaxSetup({
 
 
     });
+
+
+    $(document).on('click', '.saveChanges', function(e){
+      e.preventDefault();
+      var id = $('#pid').val()
+      let EditFormData = new FormData($('#update-product-form')[0]);
+        $.ajax({
+          type: "POST",
+          url: "/update-product/"+id,
+          data: EditFormData,
+          contentType: false,
+          processData: false,
+          dataType: "json",
+          success: function(response){
+        //     // console.log(response);
+            if(response.status == 200){
+              $('#ProductTable').DataTable().ajax.reload(null, false);
+              $('.editProductModel').modal('hide');
+              $('.editProductModel').find('form')[0].reset();
+              toastr.success(response.message);
+            }
+          }
+        });
+
+      });
+
+
  });
 </script>

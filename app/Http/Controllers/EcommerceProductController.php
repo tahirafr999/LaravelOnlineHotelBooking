@@ -87,4 +87,45 @@ class EcommerceProductController extends Controller
         }
   }
 
+  public function getupdateProduct(Request $request, $id){
+    $validator = Validator::make($request->all(),[
+        'product_title'=>'required|max:191',
+    ]);  
+      if($validator->fails()){
+        return response()->json([
+            'status'=>400,
+            'errors'=>$validator->messages(),
+        ]);
+    }
+    else{
+         $product = EcommerceProduct::find($id);
+         if($product){
+             $product->title = $request->input('product_title');
+            // if($request->hasFile('product_image')){
+            //     $path = 'images'.$product->hotel_image;
+            //     if(File::exists($path)){
+            //         File::delete($path);
+            //     }
+            //     $file = $request->file('hotel_image');
+            //     $extension = $file->getClientOriginalExtension();
+            //     $filename = time().'.'.$extension;
+            //     $file->move('images',$filename);
+            //     $product->hotel_image = $filename;
+            // }  
+            $product->update();
+            return response()->json([
+                'status'=>200,
+                'message'=>'updated successfully'
+            ]);
+        }else{
+            return response()->json([
+                'status'=>404,
+                'message'=>'Not Found'
+            ]);
+        }
+        
+       
+    }
+}
+
 }
