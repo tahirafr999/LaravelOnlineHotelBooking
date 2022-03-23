@@ -40,13 +40,18 @@
                     @csrf
                      <input type="hidden" name="pid" id="pid">
                      <div class="form-group">
-                         <label for="">Country name</label>
+                         <label for="">Product Title</label>
                          <input type="text" class="form-control" name="product_title" id="edit_product_title" placeholder="Enter country name">
                          <span class="text-danger error-text country_name_error"></span>
                      </div>
                      <div class="form-group">
-                         <label for="">Capital city</label>
+                         <label for="">Product Author</label>
                          <input type="text" class="form-control" name="product_author" id="edit_product_author" placeholder="Enter capital city">
+                         <span class="text-danger error-text capital_city_error"></span>
+                     </div>
+                     <div class="form-group">
+                         <label for="">Product Image</label>
+                         <input type="text" class="form-control" name="product_author" id="edit_product_image" placeholder="Enter capital city">
                          <span class="text-danger error-text capital_city_error"></span>
                      </div>
                      <div class="form-group">
@@ -113,6 +118,8 @@ $.ajaxSetup({
             }else{
                 $('#edit_product_title').val(response.details.title);
                 $('#edit_product_author').val(response.details.author);
+                
+                $('#edit_product_image').val(response.details.photo);
                 $('#pid').val(pro_id);
             }
         }
