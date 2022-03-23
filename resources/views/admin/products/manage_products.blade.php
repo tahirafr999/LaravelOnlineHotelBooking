@@ -43,11 +43,12 @@
                      columns:[
                          {data:'title', name:'product_title'},
                          {data:'author', name:'product_author'},
-                         { targets: 2,
-      render: function(data) {
-        return '<img src="'+data+'">'
-      }},
-    
+                  
+                         {data: 'photo', name: 'product_image',
+            render: function( data, type, full, meta ) {
+                return "<img src=/images/" + data + " style='width:50px;height:50px;' />";
+            }
+            },
                          {data:'category', name:'product_category'},
                          {data:'product_description', name:'product_description'},
                          {data:'product_price', name:'product_category'},

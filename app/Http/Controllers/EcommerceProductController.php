@@ -58,7 +58,14 @@ class EcommerceProductController extends Controller
                           <button class="btn btn-sm btn-primary" data-id="'.$row['id'].'" id="editCountryBtn">Update</button>
                           <button class="btn btn-sm btn-danger" data-id="'.$row['id'].'" id="deleteCountryBtn">Delete</button>
                     </div>';
+                    
+                    
         })
+        ->addColumn('product_image', function ($product_brand) { 
+            $url=asset("uploads/image/$product_brand->image"); 
+            return '<img src='.$url.' border="0" width="40" class="img-rounded" align="center" />'; 
+     })
+        
         ->rawColumns(['actions'])
                             ->make(true);
         }
