@@ -35,6 +35,7 @@ Route::get('Show_dashboard',function(){
 // Ecommerce Product
 Route::post('/add-Ecommerce-product',[EcommerceProductController::class,'addEcommerceProduct']);
 Route::get('/product-display',[EcommerceProductController::class,'getAllProducts']);
+Route::get('/get_product_details/{pro_id}',[EcommerceProductController::class,'getProductDetails']);
 
 
 

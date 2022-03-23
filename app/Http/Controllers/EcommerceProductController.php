@@ -55,8 +55,8 @@ class EcommerceProductController extends Controller
         ->addIndexColumn()
         ->addColumn('actions', function($row){
             return '<div class="btn-group">
-                          <button class="btn btn-sm btn-primary" data-id="'.$row['id'].'" id="editCountryBtn">Update</button>
-                          <button class="btn btn-sm btn-danger" data-id="'.$row['id'].'" id="deleteCountryBtn">Delete</button>
+                          <button class="btn btn-sm btn-primary" data-id="'.$row['id'].'" id="editProductBtn">Update</button>
+                          <button class="btn btn-sm btn-danger" data-id="'.$row['id'].'" id="deleteProductBtn">Delete</button>
                     </div>';
                     
                     
@@ -69,4 +69,22 @@ class EcommerceProductController extends Controller
         ->rawColumns(['actions'])
                             ->make(true);
         }
+
+
+            //GET COUNTRY DETAILS
+    public function getProductDetails($id){
+        $details = EcommerceProduct::find($id);
+        if($details){
+            return response()->json([
+                'status'=>200,
+                'details'=>$details
+            ]);
+        }else{
+            return response()->json([
+                'status'=>404,
+                'message'=>'Not Found'
+            ]);
+        }
+  }
+
 }
