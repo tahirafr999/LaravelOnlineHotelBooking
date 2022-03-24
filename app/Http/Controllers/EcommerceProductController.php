@@ -101,17 +101,21 @@ class EcommerceProductController extends Controller
          $product = EcommerceProduct::find($id);
          if($product){
              $product->title = $request->input('product_title');
-            // if($request->hasFile('product_image')){
-            //     $path = 'images'.$product->hotel_image;
-            //     if(File::exists($path)){
-            //         File::delete($path);
-            //     }
-            //     $file = $request->file('hotel_image');
-            //     $extension = $file->getClientOriginalExtension();
-            //     $filename = time().'.'.$extension;
-            //     $file->move('images',$filename);
-            //     $product->hotel_image = $filename;
-            // }  
+             $product->author = $request->input('product_author');
+            if($request->hasFile('product_image')){
+                $path = 'images'.$product->photo;
+                if(File::exists($path)){
+                    File::delete($path);
+                }
+                $file = $request->file('product_image');
+                $extension = $file->getClientOriginalExtension();
+                $filename = time().'.'.$extension;
+                $file->move('images',$filename);
+                $product->photo = $filename;
+            }  
+            $product->category = $request->input('product_category');
+            $product->product_price = $request->input('product_price');
+            $product->product_description = $request->input('product_description');
             $product->update();
             return response()->json([
                 'status'=>200,

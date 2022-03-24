@@ -36,7 +36,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                 <form action="<?= route('update.country.details') ?>" method="post" id="update-product-form">
+                 <form method="post" id="update-product-form">
                     @csrf
                      <input type="hidden" name="pid" id="pid">
                      <div class="form-group">
@@ -49,11 +49,11 @@
                          <input type="text" class="form-control" name="product_author" id="edit_product_author" >
                          <span class="text-danger error-text capital_city_error"></span>
                      </div>
-                     <!-- <div class="form-group">
-                         <label for="">Product Image</label>
-                         <input src="#" id="edit_product_image">
+                     <div class="form-group">
+                         <label for="">Product Image</label><br>
+                         <input type="file" name="product_image" id="edit_product_image">
                          <span class="text-danger error-text capital_city_error"></span>
-                     </div> -->
+                     </div>
                      <div class="form-group">
                          <label for="">Product Category</label>
                          <input type="text" class="form-control" name="product_category" id="edit_product_category" >
