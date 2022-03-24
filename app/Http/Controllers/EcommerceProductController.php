@@ -90,6 +90,11 @@ class EcommerceProductController extends Controller
   public function getupdateProduct(Request $request, $id){
     $validator = Validator::make($request->all(),[
         'product_title'=>'required|max:191',
+        'product_author'=>'required|max:191',
+        'product_category'=>'required|max:191',
+        'product_price'=>'required|max:191',
+        'product_description'=>'required|max:191',
+        // 'product_image'=>'required|image|mimes:jpeg,png,jpg|max:2048',
     ]);  
       if($validator->fails()){
         return response()->json([

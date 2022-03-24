@@ -47,27 +47,27 @@
                      <div class="form-group">
                          <label for="">Product Author</label>
                          <input type="text" class="form-control" name="product_author" id="edit_product_author" >
-                         <span class="text-danger error-text capital_city_error"></span>
+                         <span class="text-danger error-text" id="product_author_error"></span>
                      </div>
                      <div class="form-group">
                          <label for="">Product Image</label><br>
                          <input type="file" name="product_image" id="edit_product_image">
-                         <span class="text-danger error-text capital_city_error"></span>
+                         <span class="text-danger error-text" id="product_image_error"></span>
                      </div>
                      <div class="form-group">
                          <label for="">Product Category</label>
                          <input type="text" class="form-control" name="product_category" id="edit_product_category" >
-                         <span class="text-danger error-text capital_city_error"></span>
+                         <span class="text-danger error-text" id="product_category_error"></span>
                      </div>
                      <div class="form-group">
                          <label for="">Product Description</label>
                          <input type="text" class="form-control" name="product_description" id="edit_product_description" >
-                         <span class="text-danger error-text capital_city_error"></span>
+                         <span class="text-danger error-text" id="product_description_error"></span>
                      </div>
                      <div class="form-group">
                          <label for="">Product Price</label>
                          <input type="text" class="form-control" name="product_price" id="edit_product_price" >
-                         <span class="text-danger error-text capital_city_error"></span>
+                         <span class="text-danger error-text" id="product_price_error"></span>
                      </div>
                      <div class="form-group">
                          <button type="submit" class="btn btn-block btn-success saveChanges">Save Changes</button>
