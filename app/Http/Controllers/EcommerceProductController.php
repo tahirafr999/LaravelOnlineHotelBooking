@@ -137,4 +137,17 @@ class EcommerceProductController extends Controller
     }
 }
 
+
+public function getdeleteHotel($product_id){
+    $product = EcommerceProduct::find($product_id);
+    $destination = 'images/'.$product->photo;
+    if(File::exists($destination)){
+        File::delete($destination);
+    }
+    $product->delete();
+    return response()->json(['msg'=>'Product have been deleted from database']); 
+
+    // return redirect()->back()->with('status','Hotel image Deleted Successfully');
+}
+
 }

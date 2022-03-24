@@ -175,5 +175,31 @@ $.ajaxSetup({
       });
 
 
+         //DELETE COUNTRY RECORD
+         $(document).on('click','#deleteProductBtn', function(){          
+                    var product_id = $(this).data('id');
+                     var url = "delete-product/"+product_id;
+                    swal.fire({
+                         title:'Are you sure?',
+                         html:'You want to <b>delete</b> this country',
+                         showCancelButton:true,
+                         showCloseButton:true,
+                         cancelButtonText:'Cancel',
+                         confirmButtonText:'Yes, Delete',
+                         cancelButtonColor:'#d33',
+                         confirmButtonColor:'#556ee6',
+                         width:300,
+                         allowOutsideClick:false
+                    }).then(function(result){
+                          if(result.value){
+                              $.get(url,{product_id:product_id}, function(data){
+                                $('#ProductTable').DataTable().ajax.reload(null, false);                                toastr.error(data.msg);
+                              },'json');
+                          }
+                    });
+
+                });
+
+
  });
 </script>

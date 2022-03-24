@@ -37,6 +37,8 @@ Route::post('/add-Ecommerce-product',[EcommerceProductController::class,'addEcom
 Route::get('/product-display',[EcommerceProductController::class,'getAllProducts']);
 Route::get('/get_product_details/{pro_id}',[EcommerceProductController::class,'getProductDetails']);
 Route::post('update-product/{id}',[EcommerceProductController::class,'getupdateProduct']);
+Route::get('delete-product/{id}',[EcommerceProductController::class,'getdeleteHotel']);
+
 
 
     // products
