@@ -42,7 +42,7 @@
                      <div class="form-group">
                          <label for="">Product Title</label>
                          <input type="text" class="form-control" name="product_title" id="edit_product_title" >
-                         <span class="text-danger error-text country_name_error"></span>
+                         <span class="text-danger error-text" id="product_title_error"></span>
                      </div>
                      <div class="form-group">
                          <label for="">Product Author</label>
@@ -101,12 +101,11 @@ $.ajaxSetup({
                      columns:[
                          {data:'title', name:'product_title'},
                          {data:'author', name:'product_author'},
-                  
                          {data: 'photo', name: 'product_image',
-            render: function( data, type, full, meta ) {
-                return "<img src=/images/" + data + " style='width:50px;height:50px;' />";
-            }
-            },
+                          render: function( data, type, full, meta ) {
+                          return "<img src=/images/" + data + " style='width:50px;height:50px;' />";
+                          }
+                          },
                          {data:'category', name:'product_category'},
                          {data:'product_price', name:'product_category'},
                          {data:'product_description', name:'product_description'},
@@ -164,6 +163,11 @@ $.ajaxSetup({
               $('.editProductModel').modal('hide');
               $('.editProductModel').find('form')[0].reset();
               toastr.success(response.message);
+            }else{
+              $.each(response.message, function(key, val) {
+            $("#" + key + "_error").text(val[0]);
+            });
+
             }
           }
         });
