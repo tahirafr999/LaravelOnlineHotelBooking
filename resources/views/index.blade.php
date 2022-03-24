@@ -40,14 +40,15 @@
 <div class="jumbotron" style="margin-top:-34px;">
 <h2 class="text-center">Online Shopping Mall</h2>
   <div class="row">
+    @foreach($ecommerceProduct as $Ecommerce)
   <div class="col-md-4 d-flex align-self-stretch">
    <!--card  -->
   <div class="card shadow-sm mb-4" style="padding:18px;">
-        <img src="{{asset('images/tahir-logo.png')}}" class='card-img-top' style='height:250px;width:100%;'>
+        <img src="{{ asset('images/'.$Ecommerce->photo) }}" class='card-img-top' style='height:250px;width:100%;'>
         <div class="card-body d-flex flex-column">
-            <h5 class="card-title text-uppercase">Tahir Afridi Product</h5>
-            <a href="" style='text-decoration:none; color:black'><p class='mt-3 font-weight-bold'>Category : <span></span></p>
-            <a href="" style='text-decoration:none; color:black'><p class='mt-3 font-weight-bold'>Producr Price : <span></span></p>
+            <h5 class="card-title text-uppercase">{{$Ecommerce->title}}</h5>
+            <a href="" style='text-decoration:none; color:black'><p class='mt-3 font-weight-bold'>Category : <span>{{$Ecommerce->category}}</span></p>
+            <a href="" style='text-decoration:none; color:black'><p class='mt-3 font-weight-bold'>Producr Price : <span>{{$Ecommerce->product_price}}</span></p>
             <div class="mt-auto text-center"> 
             <a href="" class='btn btn-success btn-lg'>View Details</a>
             <input type='submit' name='add_to_cart'  class='btn btn-danger btn-lg' value='Add to Cart' />
@@ -57,42 +58,9 @@
     <!-- card -->
 </div>
   <!-- col-md -->
+  @endforeach
 
-  <div class="col-md-4 d-flex align-self-stretch">
-   <!--card  -->
-  <div class="card shadow-sm mb-4" style="padding:18px;">
-        <img src="{{asset('images/tahir-logo.png')}}" class='card-img-top' style='height:250px;width:100%;'>
-        <div class="card-body d-flex flex-column">
-            <h5 class="card-title text-uppercase">Tahir Afridi Product</h5>
-            <a href="" style='text-decoration:none; color:black'><p class='mt-3 font-weight-bold'>Category : <span></span></p>
-            <a href="" style='text-decoration:none; color:black'><p class='mt-3 font-weight-bold'>Producr Price : <span></span></p>
-            <div class="mt-auto text-center"> 
-            <a href="" class='btn btn-success btn-lg'>View Details</a>
-            <input type='submit' name='add_to_cart'  class='btn btn-danger btn-lg' value='Add to Cart' />
-            </div>
-        </div>
-    </div>
-    <!-- card -->
-</div>
-  <!-- col-md -->
-
-  <div class="col-md-4 d-flex align-self-stretch">
-   <!--card  -->
-  <div class="card shadow-sm mb-4" style="padding:18px;">
-        <img src="{{asset('images/tahir-logo.png')}}" class='card-img-top' style='height:250px;width:100%;'>
-        <div class="card-body d-flex flex-column">
-            <h5 class="card-title text-uppercase">Tahir Afridi Product</h5>
-            <a href="" style='text-decoration:none; color:black'><p class='mt-3 font-weight-bold'>Category : <span></span></p>
-            <a href="" style='text-decoration:none; color:black'><p class='mt-3 font-weight-bold'>Producr Price : <span></span></p>
-            <div class="mt-auto text-center"> 
-            <a href="" class='btn btn-success btn-lg'>View Details</a>
-            <input type='submit' name='add_to_cart'  class='btn btn-danger btn-lg' value='Add to Cart' />
-            </div>
-        </div>
-    </div>
-    <!-- card -->
-</div>
-  <!-- col-md -->
+  
 
   </div>
   <!-- row -->

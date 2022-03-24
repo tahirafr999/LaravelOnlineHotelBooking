@@ -56,7 +56,7 @@ Route::get('delete-hotel/{id}',[productController::class,'DeleteHotel']);
  
 
 // Route to get data in frondend.
-Route::get('fetch-data-frondend', [productController::class,'FetchDataFrondend']);
+// Route::get('fetch-data-frondend', [productController::class,'FetchDataFrondend']);
 
 
 

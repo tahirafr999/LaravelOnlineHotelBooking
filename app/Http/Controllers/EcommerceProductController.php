@@ -137,7 +137,6 @@ class EcommerceProductController extends Controller
     }
 }
 
-
 public function getdeleteHotel($product_id){
     $product = EcommerceProduct::find($product_id);
     $destination = 'images/'.$product->photo;
@@ -148,6 +147,11 @@ public function getdeleteHotel($product_id){
     return response()->json(['msg'=>'Product have been deleted from database']); 
 
     // return redirect()->back()->with('status','Hotel image Deleted Successfully');
+}
+
+public function getEcommerceProduct(){
+    $product = EcommerceProduct::all();
+    return view('index', ['ecommerce' => $product]);
 }
 
 }

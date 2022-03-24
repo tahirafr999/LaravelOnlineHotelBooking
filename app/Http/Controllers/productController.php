@@ -8,6 +8,7 @@ use App\product;
 use Validator;
 use Storage;
 use GuzzleHttp;
+use App\EcommerceProduct;
 
 
 class productController extends Controller
@@ -69,10 +70,10 @@ class productController extends Controller
     }
 
     public function FetchDataFrondend(){
-        $front_hotel = product::all();
-        return view('index',['frond_data'=>$front_hotel]);
+        $frond_data = product::all();
+        $ecommerceProduct = EcommerceProduct::all();
+        return view('index',compact('frond_data', 'ecommerceProduct'));
     }
-
 
     public function EditHotel($id){
         $hotel = product::find($id);
@@ -142,11 +143,6 @@ class productController extends Controller
         // return redirect()->back()->with('status','Hotel image Deleted Successfully');
     }
 
-
-    Public function send(){
-
-        echo 'hi'; 
-    }
 
 }
 
