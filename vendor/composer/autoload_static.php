@@ -533,6 +533,7 @@ class ComposerStaticInit46a2db0aa7bfd7589272f7647489a061
 
     public static $classMap = array (
         'App\\AjaxCrud' => __DIR__ . '/../..' . '/app/AjaxCrud.php',
+        'App\\Cart' => __DIR__ . '/../..' . '/app/Cart.php',
         'App\\Category' => __DIR__ . '/../..' . '/app/Category.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Country' => __DIR__ . '/../..' . '/app/Country.php',
