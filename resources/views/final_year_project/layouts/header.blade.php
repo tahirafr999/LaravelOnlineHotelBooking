@@ -16,8 +16,8 @@
                     @auth
                         <a class="nav-link" href="{{ url('/home') }}">Home</a>
                         <a class="nav-link" href="{{ url('/home') }}">{{Auth::user()->company_name}}</a>
-                        <a href='cart_details.php' class='nav-link'><i class='fa fa-shopping-cart fa-1x' aria-hidden='true'></i> </a>
-                        <span class='counter counter-lg' style="margin-left:-15px;margin-top:-7px;"><span style='color:white;font-size:10px;background-color:red;border-radius:100%;padding:5px;'> 5</span></span>
+                        <a href='cart_details.php' class='nav-link'><i class='fa fa-shopping-cart fa-1x' aria-hidden='true'></i>{{App\Cart::getAddCartItems('par1','par2')}}</a>
+                        <span class='counter counter-lg' style="margin-left:-15px;margin-top:-7px;"><span style='color:white;font-size:10px;background-color:red;border-radius:100%;padding:5px;'> 5 </span></span>
                         <a class="nav-link" href="{{ route('logout') }}">Logout</a>
 
 </div>
