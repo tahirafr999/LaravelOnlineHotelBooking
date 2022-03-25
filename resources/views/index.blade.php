@@ -41,18 +41,29 @@
 <h2 class="text-center">Online Shopping Mall</h2>
   <div class="row">
     @foreach($ecommerceProduct as $Ecommerce)
-  <div class="col-md-4 d-flex align-self-stretch">
+  <div class="col-md-3 col-sm-3 d-flex align-self-stretch">
    <!--card  -->
   <div class="card shadow-sm mb-4" style="padding:18px;">
-        <img src="{{ asset('images/'.$Ecommerce->photo) }}" class='card-img-top' style='height:250px;width:100%;'>
+        <img src="{{ asset('images/'.$Ecommerce->photo) }}" class='card-img-top' style='height:250px;width:250px;'>
         <div class="card-body d-flex flex-column">
             <h5 class="card-title text-uppercase">{{$Ecommerce->title}}</h5>
             <a href="" style='text-decoration:none; color:black'><p class='mt-3 font-weight-bold'>Category : <span>{{$Ecommerce->category}}</span></p>
             <a href="" style='text-decoration:none; color:black'><p class='mt-3 font-weight-bold'>Producr Price : <span>{{$Ecommerce->product_price}}</span></p>
             <div class="mt-auto text-center"> 
-            <a href="" class='btn btn-success btn-lg'>View Details</a>
-            <input type='submit' name='add_to_cart'  class='btn btn-danger btn-lg' value='Add to Cart' />
+            @if (Route::has('login'))
+            @auth
+            <div class="d-flex">
+            <a href="" class='btn btn-success'>View Details</a>
+            <input type='submit' name='add_to_cart'  class='btn btn-danger' value='Add to Cart' />
             </div>
+            @else
+            <div class="d-flex">
+            <a href="" class='btn btn-success'>View Details</a>
+            <input type='submit' name='add_to_cart'  class='btn btn-danger' value='Add to Cart' />
+            </div>
+            @endauth
+            @endif
+          </div>
         </div>
     </div>
     <!-- card -->
