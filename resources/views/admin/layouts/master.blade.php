@@ -65,8 +65,7 @@
 @include('admin.layouts.footer')
 
 
-</div><!-- wrapper -->
-
+</div><!-- wrapper -->  
 <script src="{{ asset('jquery/jquery-3.6.0.min.js') }}"></script>
     <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>

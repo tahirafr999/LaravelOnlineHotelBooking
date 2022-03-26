@@ -5,7 +5,6 @@
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Final Year Project In Laravel</title>
-
    <!-- Font Awesome -->
   <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
   <!-- Ionicons -->
@@ -40,6 +39,9 @@
  
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
+  
+
+
 
  </head>
  <body>
@@ -52,9 +54,11 @@
 
 
 
-
 <!-- jQuery -->
+
 <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
+
+
 <!-- Bootstrap 4 -->
 <script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- DataTables -->

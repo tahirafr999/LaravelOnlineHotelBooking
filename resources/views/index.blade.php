@@ -54,12 +54,12 @@
             @auth
             <div class="d-flex">
             <a href="" class='btn btn-success'>View Details</a>
-            <input type='submit' name='add_to_cart'  class='btn btn-danger' value='Add to Cart' />
+            <button type='submit' id="cartItemAdded" class='btn btn-danger'>Add to Cart</button>
             </div>
             @else
             <div class="d-flex">
             <a href="" class='btn btn-success'>View Details</a>
-            <input type='submit' name='add_to_cart'  class='btn btn-danger' value='Add to Cart' />
+            <button type='submit' id="cartItemAdded" class='btn btn-danger'>Add to Cart</button>
             </div>
             @endauth
             @endif
@@ -80,3 +80,34 @@
 
 
 @endsection
+
+
+<script src="{{ asset('jquery/jquery-3.6.0.min.js') }}"></script>
+
+
+<script>
+  $(document).ready(function(){
+    // var call = 0;
+  $(document).on('click','#cartItemAdded', function(e){
+    
+    {{App\Cart::getAddCartItems($Ecommerce->title)}}
+    alert();
+    // var finalcall = call + 1;
+    // alert(finalcall); 
+
+//     if(finalcall >1){
+//       $.ajax({
+//    url: {{App\Cart::getAddCartItems()}},
+//    dataType: 'json',
+//    success: function(data){
+//         //data returned from php
+//    }
+// });
+//     }
+
+// 
+  });
+
+
+});
+</script>
