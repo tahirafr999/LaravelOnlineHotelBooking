@@ -53,7 +53,7 @@
             @if (Route::has('login'))
             @auth
             <div class="d-flex">
-            <a href="" class='btn btn-success'>View Details</a>
+            <a href="" class='btn btn-success'>View Details </a>
             <button type='submit' id="cartItemAdded" class='btn btn-danger'>Add to Cart</button>
             </div>
             @else
@@ -84,34 +84,12 @@
 
 <script src="{{ asset('jquery/jquery-3.6.0.min.js') }}"></script>
 
-
+<!-- 
 <script>
   $(document).ready(function(){
-    // var call = 0;
+    var call = 0;
   $(document).on('click','#cartItemAdded', function(e){
-    $.ajax({
-                url: app/Cart::getAddCartItems(),
-                success: function(response)
-                {
-                    alert('show');
-                }
-            });
-    // var finalcall = call + 1;
-    // alert(finalcall); 
-
-//     if(finalcall >1){
-//       $.ajax({
-//    url: {{App\Cart::getAddCartItems()}},
-//    dataType: 'json',
-//    success: function(data){
-//         //data returned from php
-//    }
-// });
-//     }
-
-// 
   });
 
-
 });
-</script>
+</script> -->
