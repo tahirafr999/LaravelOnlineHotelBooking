@@ -10,11 +10,7 @@ class Cart extends Model
     protected $fillable = ['product_name'];
     public static function getAddCartItems( ) {
     
-        
-        $user = Cart::create([
-            'product_name' => 'Taylor',
-            
-        ]);
+        return "Hello World!";
       
       }
 }
