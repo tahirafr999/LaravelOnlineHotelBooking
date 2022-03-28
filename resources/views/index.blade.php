@@ -46,6 +46,7 @@
   <div class="card shadow-sm mb-4" style="padding:18px;">
         <img src="{{ asset('images/'.$Ecommerce->photo) }}" class='card-img-top' style='height:250px;width:250px;'>
         <div class="card-body d-flex flex-column">
+          <!-- <input type="hidden" name="" id="" value="{{$Ecommerce->id}}"> -->
             <h5 class="card-title text-uppercase">{{$Ecommerce->title}}</h5>
             <a href="" style='text-decoration:none; color:black'><p class='mt-3 font-weight-bold'>Category : <span>{{$Ecommerce->category}}</span></p>
             <a href="" style='text-decoration:none; color:black'><p class='mt-3 font-weight-bold'>Producr Price : <span>{{$Ecommerce->product_price}}</span></p>
@@ -54,12 +55,12 @@
             @auth
             <div class="d-flex">
             <a href="" class='btn btn-success'>View Details </a>
-            <button type='submit' id="cartItemAdded" class='btn btn-danger'>Add to Cart</button>
+            <button type='submit' data-id="{{$Ecommerce->id}}" class='btn btn-danger cartItemAdded'>Add to Cart</button>
             </div>
             @else
             <div class="d-flex">
             <a href="" class='btn btn-success'>View Details</a>
-            <button type='submit' id="cartItemAdded" class='btn btn-danger'>Add to Cart</button>
+            <button type='submit'  data-id="{{$Ecommerce->id}}" class='btn btn-danger cartItemAdded'>Add to Cart</button>
             </div>
             @endauth
             @endif
@@ -84,12 +85,22 @@
 
 <script src="{{ asset('jquery/jquery-3.6.0.min.js') }}"></script>
 
-<!-- 
+
 <script>
   $(document).ready(function(){
-    var call = 0;
-  $(document).on('click','#cartItemAdded', function(e){
+  $(document).on('click','.cartItemAdded', function(e){
+    var ecommerce_id = $(this).data('id');
+    var a = JSON.stringify(["{{$ecommerceProduct}}"]);
+    $.ajax({
+      type: 'POST',
+            url: '/countCart/'+ecommerce_id,
+            data: {option: a,"_token": "{{ csrf_token() }}",},
+            dataType: 'json',
+           success:function(data){
+              // $("#msg").html(data.msg);
+           }
+        });
   });
 
 });
-</script> -->
+</script>

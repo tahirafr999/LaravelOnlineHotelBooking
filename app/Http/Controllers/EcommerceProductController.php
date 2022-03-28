@@ -154,4 +154,15 @@ public function getEcommerceProduct(){
     return view('index', ['ecommerce' => $product]);
 }
 
+
+Public function getCountCart(Request $request, $id){
+    $AddedProductId = $request->id;
+
+    // if($show = )
+ echo "<pre>"; print_r($show); exit;
+        //     $show = $request->all();
+        // Echo "<pre>"; print_r($show); exit;
+  
+}
+
 }
