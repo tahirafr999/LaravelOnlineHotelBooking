@@ -161,7 +161,7 @@ Public function getCountCart(Request $request, $id){
     // if($show = )
  echo "<pre>"; print_r($show); exit;
             $show = $request->all();
-        Echo "<pre>"; print_r($show); exit;
+        // Echo "<pre>"; print_r($show); exit;s
   
 }
 
