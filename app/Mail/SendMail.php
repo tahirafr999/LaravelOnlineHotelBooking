@@ -14,7 +14,7 @@ class SendMail extends Mailable
     /**
      * Create a new message instance.
      *
-     * @return void
+     * @return void voind
      */
     public function __construct($MailData)
     {
