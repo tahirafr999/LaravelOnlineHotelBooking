@@ -12,7 +12,7 @@ class SendMail extends Mailable
     use Queueable, SerializesModels;
     public $MailData;
     /**
-     * Create a new message instance.
+     * Create a new message instance. hello instance
      *
      * @return void 
      */
