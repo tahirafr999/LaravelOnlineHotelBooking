@@ -6,7 +6,9 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-// 
+// aadnjadnjdnwc cjv efbv hdfbvyfubvvbfbvv
+// loream
+
 
 class SendMail extends Mailable
 {
