@@ -163,7 +163,7 @@ Public function getCountCart(Request $request, $id){
 //  echo "<pre>"; print_r($AddedProductId); 
 //  echo "<pre>"; print_r($AddedProductIdSecond);   
             $show = $request->all();
-        Echo "<pre>"; print_r($show);
+        echo "<pre>"; print_r($show);
          exit;
         // dd($request->all());  
 }
