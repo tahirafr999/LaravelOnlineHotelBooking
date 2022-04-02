@@ -156,17 +156,16 @@ public function getEcommerceProduct(){
 
 
 Public function getCountCart(Request $request, $id){
-    $AddedProductId = $request->id;
-    $product = new EcommerceProduct;  
-    $product = 
+    // $AddedProductId = $request->id;
+    // $product = new EcommerceProduct;  
 // hmm  
     // if($show = )
- echo "<pre>"; print_r($AddedProductId); 
- echo "<pre>"; print_r($AddedProductIdSecond); 
- exit;
-            // $show = $request->all();
-        // Echo "<pre>"; print_r($show); exit;s
-  
+//  echo "<pre>"; print_r($AddedProductId); 
+//  echo "<pre>"; print_r($AddedProductIdSecond);   
+            $show = $request->all();
+        Echo "<pre>"; print_r($show);
+         exit;
+        // dd($request->all());  
 }
 
 }
