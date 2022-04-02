@@ -157,9 +157,13 @@ public function getEcommerceProduct(){
 
 Public function getCountCart(Request $request, $id){
     $AddedProductId = $request->id;
+    $product = new EcommerceProduct;  
+    $product = 
 // hmm  
     // if($show = )
- echo "<pre>"; print_r($show); exit;
+ echo "<pre>"; print_r($AddedProductId); 
+ echo "<pre>"; print_r($AddedProductIdSecond); 
+ exit;
             // $show = $request->all();
         // Echo "<pre>"; print_r($show); exit;s
   
