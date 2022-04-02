@@ -162,19 +162,7 @@ Public function getCountCart(Request $request, $id){
     $EcommerceProduct = new Cart;
     $EcommerceProduct->product_id = $users->id;
     $EcommerceProduct->product_name = $users->title;
-    $EcommerceProduct->save();
-
-    // $EcommerceProduct->save();
-    // $AddedProductId = $request->id;
-    // $product = new EcommerceProduct;  
-// hmm  
-    // if($show = )
-//  echo "<pre>"; print_r($AddedProductId); 
-//  echo "<pre>"; print_r($AddedProductIdSecond);  
-// $name = $request->title; 
-            // $show = $request->all();
-        //  exit;
-        // dd($name);  
+    $EcommerceProduct->save();  
 }
 
 }
