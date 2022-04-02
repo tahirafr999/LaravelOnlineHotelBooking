@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use App\EcommerceProduct;
+use App\Cart;
 use Validator;
 use DataTables;
+use DB;
 class EcommerceProductController extends Controller
 {
     public function addEcommerceProduct(Request $request){
@@ -156,16 +158,23 @@ public function getEcommerceProduct(){
 
 
 Public function getCountCart(Request $request, $id){
+    $users = DB::table('ecommerce_products')->where('id', $id)->first();
+    $EcommerceProduct = new Cart;
+    $EcommerceProduct->product_id = $users->id;
+    $EcommerceProduct->product_name = $users->title;
+    $EcommerceProduct->save();
+
+    // $EcommerceProduct->save();
     // $AddedProductId = $request->id;
     // $product = new EcommerceProduct;  
 // hmm  
     // if($show = )
 //  echo "<pre>"; print_r($AddedProductId); 
-//  echo "<pre>"; print_r($AddedProductIdSecond);   
-            $show = $request->all();
-        echo "<pre>"; print_r($show);
-         exit;
-        // dd($request->all());  
+//  echo "<pre>"; print_r($AddedProductIdSecond);  
+// $name = $request->title; 
+            // $show = $request->all();
+        //  exit;
+        // dd($name);  
 }
 
 }
