@@ -9,6 +9,7 @@ use App\Cart;
 use Validator;
 use DataTables;
 use DB;
+use Session;
 class EcommerceProductController extends Controller
 {
     public function addEcommerceProduct(Request $request){
@@ -158,8 +159,9 @@ public function getEcommerceProduct(){
 
 
 Public function getCountCart(Request $request, $id){
+    $session_id = Session::get('id');
 
-    // dd($request->all());
+    dd($session_id);
 
     $ecommerce_products = DB::table('ecommerce_products')->where('id', $id)->first();
     $EcommerceProduct = new Cart;
@@ -172,6 +174,12 @@ Public function getCountCart(Request $request, $id){
     $EcommerceProduct->product_price = $ecommerce_products->product_price;
 
     $EcommerceProduct->save();  
+
+}
+
+Public function getCartList(){
+    $CartList = Cart::all();
+    return view('final_year_project.layouts.header',compact(['result','CartList']));
 }
 
 }
