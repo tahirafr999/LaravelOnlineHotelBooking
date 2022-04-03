@@ -20,6 +20,8 @@
                         <span class='counter counter-lg' style="margin-left:-15px;margin-top:-7px;">
                         <span style='color:white;font-size:10px;background-color:red;border-radius:100%;padding:5px;'>
                         {{ DB::table('carts')->where('add_to_cart_id', Auth::user()->id)->count() }}
+                       <!-- {{ $session_id = Session::get('id') }} -->
+
                       </span></span>
                         <a class="nav-link" href="{{ route('logout') }}">Logout</a>
 

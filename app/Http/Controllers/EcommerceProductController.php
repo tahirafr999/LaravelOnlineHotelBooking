@@ -10,6 +10,7 @@ use Validator;
 use DataTables;
 use DB;
 use Session;
+use Illuminate\Support\Facades\Auth;
 class EcommerceProductController extends Controller
 {
     public function addEcommerceProduct(Request $request){
@@ -159,20 +160,15 @@ public function getEcommerceProduct(){
 
 
 Public function getCountCart(Request $request, $id){
-    $session_id = Session::get('id');
-
-    dd($session_id);
-
     $ecommerce_products = DB::table('ecommerce_products')->where('id', $id)->first();
     $EcommerceProduct = new Cart;
     $EcommerceProduct->product_id = $ecommerce_products->id;
     $EcommerceProduct->product_name = $ecommerce_products->title;
     $EcommerceProduct->product_author = $ecommerce_products->author;
-    $EcommerceProduct->add_to_cart_id = $ecommerce_products->id;
+    $EcommerceProduct->add_to_cart_id = Auth::id();
     $EcommerceProduct->product_category = $ecommerce_products->category;
     $EcommerceProduct->product_image = $ecommerce_products->photo;
     $EcommerceProduct->product_price = $ecommerce_products->product_price;
-
     $EcommerceProduct->save();  
 
 }
