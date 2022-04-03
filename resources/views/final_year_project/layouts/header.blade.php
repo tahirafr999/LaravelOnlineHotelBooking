@@ -15,7 +15,7 @@
                 <div class="links1 d-flex">
                     @auth
                         <a class="nav-link" href="{{ url('/home') }}">Home</a>
-                        <a class="nav-link" href="{{ url('/home') }}">{{Auth::user()->company_name}}</a>
+                        <a class="nav-link" href="{{ url('/Show_dashboard') }}">{{Auth::user()->company_name}}</a>
                         <a href='' class='nav-link'><i class='fa fa-shopping-cart fa-1x' aria-hidden='true'></i></a>
                         <span class='counter counter-lg' style="margin-left:-15px;margin-top:-7px;">
                         <span style='color:white;font-size:10px;background-color:red;border-radius:100%;padding:5px;' id="mydiv">
