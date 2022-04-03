@@ -158,10 +158,19 @@ public function getEcommerceProduct(){
 
 
 Public function getCountCart(Request $request, $id){
-    $users = DB::table('ecommerce_products')->where('id', $id)->first();
+
+    // dd($request->all());
+
+    $ecommerce_products = DB::table('ecommerce_products')->where('id', $id)->first();
     $EcommerceProduct = new Cart;
-    $EcommerceProduct->product_id = $users->id;
-    $EcommerceProduct->product_name = $users->title;
+    $EcommerceProduct->product_id = $ecommerce_products->id;
+    $EcommerceProduct->product_name = $ecommerce_products->title;
+    $EcommerceProduct->product_author = $ecommerce_products->author;
+    $EcommerceProduct->add_to_cart_id = $ecommerce_products->id;
+    $EcommerceProduct->product_category = $ecommerce_products->category;
+    $EcommerceProduct->product_image = $ecommerce_products->photo;
+    $EcommerceProduct->product_price = $ecommerce_products->product_price;
+
     $EcommerceProduct->save();  
 }
 
