@@ -96,8 +96,12 @@
             url: '/countCart/'+ecommerce_id,
             data: {option: a,"_token": "{{ csrf_token() }}",},
             dataType: 'json',
-           success:function(data){
-              // $("#msg").html(data.msg);
+           success:function(response){
+            if(response.status == 200){
+              toastr.success(response.message);
+              $("#mydiv").load(location.href + " #mydiv");
+
+            }
            }
         });
   });

@@ -169,7 +169,12 @@ Public function getCountCart(Request $request, $id){
     $EcommerceProduct->product_category = $ecommerce_products->category;
     $EcommerceProduct->product_image = $ecommerce_products->photo;
     $EcommerceProduct->product_price = $ecommerce_products->product_price;
-    $EcommerceProduct->save();  
+    $EcommerceProduct->save(); 
+    return response()->json([
+        'status'=>200,
+        'message'=>'Product Added to the Cart Successfully'
+    ]); 
+    
 
 }
 
