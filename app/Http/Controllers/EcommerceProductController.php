@@ -153,12 +153,6 @@ public function getdeleteHotel($product_id){
     // return redirect()->back()->with('status','Hotel image Deleted Successfully');
 }
 
-// public function getEcommerceProduct(){
-//     $product = EcommerceProduct::all();
-//     return view('index', ['ecommerce' => $product]);
-// }
-
-
 Public function getCountCart(Request $request, $id){
     $ecommerce_products = DB::table('ecommerce_products')->where('id', $id)->first();
     $EcommerceProduct = new Cart;
