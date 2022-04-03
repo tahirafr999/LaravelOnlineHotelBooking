@@ -17,10 +17,10 @@
                          <!-- card inner col -->
                          <div class="col-md-5 col-xs-6">
                           <p style="font-size:20px;"><?php echo  $title; ?></p>
-                          <p class="text-muted" style="font-size:20px;"><?php echo  $author; ?></p>
-                          <p class="text-muted" style="font-size:20px;"><?php echo  $category; ?></p>
-                          <p class="text-muted" style="font-size:20px;">Price of Product Rs:  <span><?php echo  $product_price;?></span></p>
-                          <input class="iprice" type="hidden" value="<?php echo $product_price ;?> ">
+                          <p class="text-muted" style="font-size:20px;"></p>
+                          <p class="text-muted" style="font-size:20px;"></p>
+                          <p class="text-muted" style="font-size:20px;">Price of Product Rs:  <span></span></p>
+                          <input class="iprice" type="hidden" value="">
                           <p class="mr-4"><?php echo "<a href='cart_details.php?cart_product_id=$id'><i class='fa fa-trash-o fa-2x mt-4'></i><a href='cart_details.php?cart_product_id=$id'><span style='text-decoration:none;margin-left:15px;'>Remove Item</span></a>"; ?></p>
                         </div> 
                         <!-- card inner col -->
@@ -43,8 +43,6 @@
                 </div>  <!-- card body-->
             </div>  <!-- card -->      
         </div>   <!-- col -->
-        
-        
         
         <!-- col 2 -->
         <div class="col-md-5 col-sm-6 col-xs-12">
