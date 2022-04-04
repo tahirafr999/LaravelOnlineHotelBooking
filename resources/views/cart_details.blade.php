@@ -18,13 +18,13 @@
                         </div> 
                         <!-- card inner col -->
                          <!-- card inner col -->
-                         <div class="col-md-5 col-xs-6">
+                         <div class="col-md-5 col-xs-6" style="margin-left:101px;">
                           <p style="font-size:20px;">{{$cart->product_name}}</p>
                           <p class="text-muted" style="font-size:20px;">{{$cart->product_author}}</p>
                           <p class="text-muted" style="font-size:20px;">{{$cart->product_category}}</p>
                           <p class="text-muted" style="font-size:20px;">Price of Product Rs:{{$cart->product_price}}  <span></span></p>
                           <input class="iprice" type="hidden" value="">
-                          <p class="mr-4"><a href='cart_details.php?cart_product_id=$id'><i class='fa fa-trash-o fa-2x mt-4'></i><a href='cart_details.php?cart_product_id=$id'><span style='text-decoration:none;margin-left:15px;'>Remove Item</span></a>"; ?></p>
+                          <p class="mr-4"><a href='cart_details.php?cart_product_id=$id'><i class='fa fa-trash-o fa-2x mt-4'></i><a href='cart_details.php?cart_product_id=$id'><span style='text-decoration:none;margin-left:15px;'>Remove Item</span></a></p>
                         </div> 
                         <!-- card inner col -->
 
