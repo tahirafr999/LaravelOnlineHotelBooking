@@ -28,6 +28,13 @@ Route::get('Show_dashboard',function(){
     return view('admin.dashboard_stuff');
 });
 
+Route::get('cart_details',function(){
+    return view('cart_details');
+});
+
+Route::get('/cart_details',[EcommerceProductController::class,'getCartAllProducts']);
+
+
 });
 
 // Ecommerce Product

@@ -172,9 +172,9 @@ Public function getCountCart(Request $request, $id){
 
 }
 
-Public function getCartList(){
+Public function getCartAllProducts(){
     $CartList = Cart::all();
-    return view('final_year_project.layouts.header',compact(['result','CartList']));
+    return view('cart_details', ['product'=>$CartList]);
 }
 
 }
