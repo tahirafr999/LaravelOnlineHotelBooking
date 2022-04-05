@@ -81,7 +81,6 @@
         
 <?php 
 $red1 = "tes";
-$red2 = "no";
 
 
     </div>   <!-- row -->
