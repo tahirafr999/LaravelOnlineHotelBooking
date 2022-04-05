@@ -78,11 +78,6 @@
 
         <!-- col 2 -->
 
-        
-<?php 
-$red1 = "tes";
-
-
     </div>   <!-- row -->
 </section>
 <!-- section end -->
