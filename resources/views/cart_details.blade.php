@@ -82,7 +82,6 @@
 <?php 
 $red1 = "tes";
 $red2 = "no";
-if(strpos($red1,$red2)){
 
 
     </div>   <!-- row -->
