@@ -22,18 +22,17 @@
                           <p style="font-size:20px;">{{$cart->product_name}}</p>
                           <p class="text-muted" style="font-size:20px;">{{$cart->product_author}}</p>
                           <p class="text-muted" style="font-size:20px;">{{$cart->product_category}}</p>
-                          <p class="text-muted" style="font-size:20px;">Price of Product Rs:{{$cart->product_price}}  <span></span></p>
-                          <input class="iprice" type="hidden" value="">
+                          <input type="text" class="text-muted" style="font-size:20px;"  value="{{$cart->product_price}}"> <span></span></p>
+                          <input class="iprice" type="hidden" value="{{$cart->product_price}}">
                           <p class="mr-4"><a href='cart_details.php?cart_product_id=$id'><i class='fa fa-trash-o fa-2x mt-4'></i><a href='cart_details.php?cart_product_id=$id'><span style='text-decoration:none;margin-left:15px;'>Remove Item</span></a></p>
                         </div> 
                         <!-- card inner col -->
-
                          <!-- card inner col -->
                         <div class="col-md-2 col-xs-6 ">
                         <!-- <div class="btn-group float-left" role="group" aria-label="Basic example" style="border:1px solid black; border-radius:5px;width:200px; padding:5px;"> -->
                         <!-- <button type="button" class="btn btn-default"  onclick="minusbot(<?php // echo $id;?>)"><i class="fa fa-minus" aria-hidden="true"></i></button> -->
                         <!-- <input type="text" name="kgcount" value="1" id = "kilohere_<?php //echo $id; ?>" style="width:110px;height:25px;margin-top:8px; text-align:center;"> -->
-                        <input class="iquantity text-center" type="number"  onchange='subTotal()' value='<?php // echo $quantity; ?>' min='1' max='10'>
+                        <input class="iquantity text-center" type="number"  onchange='subTotal()' value="<?php echo  $quantity = 1; ?>"  min='1' max='10' >
                         <!-- <button type="button" class="btn btn-default mb-1" onclick="plusbot('<?php // echo $id ?>','<?php //echo $product_price ?>','<?php //echo $total ?>','<?php //echo $quantity ?>')"><i class="fa fa-plus" aria-hidden="true"></i></button> -->
                         <!-- </div> -->
                         <p class="total_cart font-weight-bold">RS:<span class="total_cart itotal ml-3"></span></p>
@@ -61,9 +60,9 @@
                         <!-- card inner col -->
                         <div class="col-md-12 col-xs-6">
                            <form action="checkout_details.php" method="POST">
-                            <h2>Grand Amount :<span class="mt-5 ml-5"  id="gtotal" ></span></h2>
+                           <h2>Grand Amount :<span class="mt-5 ml-5"  id="gtotal"></span></h2>
                            <input type="hidden" name="tglobal" id="tglobal" >
-                           <button type="submit" name="add_to_checkout" class="btn btn-primary btn-block mt-5 p-3">Go to Checkouta</button>
+                           <button type="submit" name="add_to_checkout" class="btn btn-primary btn-block mt-5 p-3">Go to Checkout</button>
                            <!-- <a href="online_payment.php" type="submit" name="add_to_checkout" class="btn btn-success btn-block p-3">Online Payment</a> -->
 
                         </form>
@@ -80,7 +79,14 @@
         <!-- col 2 -->
 
         
-
+<?php 
+$red1 = "tes";
+$red2 = "no";
+if(strpos($red1,$red2)){
+echo "yes it";
+}else{
+echo "no its ot";}
+?> 
 
 
     </div>   <!-- row -->
@@ -89,76 +95,36 @@
 </div>
 
 @endsection
+<script src="{{ asset('jquery/jquery-3.6.0.min.js') }}"></script>
+
 
 <script>
-  setTimeout(function() {
-
-// Do something after 3 seconds
-// This can be direct code, or call to some other function
-
-$('#alertcart').hide();
-
-},2000);
-</script>
-<!-- <script>
-    function minusbot(id,product_price)
-    {   var id = id;
-        var  price = product_price;
-        // alert(price);
-        var quentity = document.getElementById('kilohere_'+id).value = parseInt(document.getElementById('kilohere_'+id).value) - 1;
-
-        var check = 'tell_<?php //echo $id;?>';
-        // alert(check);   
-
-        // var minus = document.querySelector(".total_cart");
-        // alert(minus);
-  
-        // var minus = document.getElementById("total-cart").value;
-        // alert(minus);
-        // return false;
-
-        var checknumifzero = parseInt(document.getElementById('kilohere_'+id).value);
-
-        if(checknumifzero < 1) //preventing to get negative value
-        {
-            document.getElementById('kilohere_'+id).value = 1;
-        }
-    }  
-
-    function plusbot(id,product_price,total,quantity)
-    {
-        var id = id; 
-        var  price = product_price;
-         var quentity = document.getElementById('kilohere_'+id).value = parseInt(document.getElementById('kilohere_'+id).value) + 1;
-         var adding_product_price = price * quentity;
-         document.getElementById('tell_'+id).innerHTML=adding_product_price;
-
-
-    }
-</script> -->
-
-<script>
-    var gt = 0;
-    var iprice = document.getElementsByClassName('iprice');
-    var iquantity = document.getElementsByClassName('iquantity');
-    var itotal = document.getElementsByClassName('itotal');
-    var gtotal = document.getElementById('gtotal');
+   
     // console.log(gtotal);
    
 
 
-
     function subTotal(){
-        gt=0; 
+        let gt = 0;
+        let price = {{$cart->product_price}};
+    let iprice = document.getElementsByClassName('iprice').innerHTML = price;
+    alert(iprice);
+    let iquantity = document.getElementsByClassName('iquantity');
+    let itotal = document.getElementsByClassName('itotal');
+    let gtotal = document.getElementById('gtotal'); 
         for(i=0;i<iprice.length; i++){
 
             itotal[i].innerText=(iprice[i].value)*(iquantity[i].value);
-            gt = gt+(iprice[i].value)*(iquantity[i].value);
+             gt = gt+(iprice[i].value)*(iquantity[i].value);
         }
-        gtotal.innerText=gt;
-        var tglobaltest = document.getElementById('tglobal').value = gt;
-      console.log(tglobaltest);
+        gtotal=itotal;
+        // console.log(gtotal);
+         document.getElementById("gtotal").innerHTML = gtotal;
+        // alert(gtotal);
+        let tglobaltest = document.getElementById('tglobal').innerHTML = gtotal;
+    //   console.log(tglobaltest);
     }
+
     subTotal();
 
 </script>
