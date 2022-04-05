@@ -85,7 +85,6 @@ $red2 = "no";
 if(strpos($red1,$red2)){
 echo "yes it";
 }else{
-echo "no its ot";}
 
 
     </div>   <!-- row -->
