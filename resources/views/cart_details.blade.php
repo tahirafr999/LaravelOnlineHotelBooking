@@ -97,7 +97,7 @@
     var a = JSON.stringify(["{{$cart}}"]);
     $.ajax({
       type: 'POST',
-            url: "/CartGrandPrice/?cartId="+cart_id+"&Quantity="+quantity,
+            url: "/CartGrandPrice/"+cart_id+"/"+quantity,
             data: {option: a,"_token": "{{ csrf_token() }}",},
             dataType: 'json',
             success:function(response){
