@@ -48,10 +48,6 @@
             </div>  <!-- card -->    
             @endforeach  
         </div>   <!-- col -->
-
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit hic pariatur, eveniet nulla laborum ipsum repellendus ratione recusandae praesentium! Numquam expedita perspiciatis reiciendis quisquam rerum. Atque nostrum assumenda amet voluptas.
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum libero commodi, harum aperiam quod laboriosam quis quidem a blanditiis dolores atque, nesciunt nostrum quo soluta repudiandae itaque perferendis? Laboriosam, vitae.
-
         
         <!-- col 2 -->
         <div class="col-md-5 col-sm-6 col-xs-12">
