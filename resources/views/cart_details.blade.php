@@ -49,7 +49,7 @@
             @endforeach  
         </div>   <!-- col -->
       
-Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae ducimus unde beatae ipsum voluptates aliquam provident vitae, tempore adipisci. Labore sed delectus illo dis
+Lorem, ipsum dolor sit amet consectetur adipisicing elit
 
         
         <!-- col 2 -->
