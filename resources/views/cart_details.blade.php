@@ -29,11 +29,12 @@
                         <!-- card inner col -->
                          <!-- card inner col -->
                         <div class="col-md-2 col-xs-6 ">
-                            <?php $iquantity = 1; ?>
+                            <?php //$iquantity = 1; ?>
                         <!-- <div class="btn-group float-left" role="group" aria-label="Basic example" style="border:1px solid black; border-radius:5px;width:200px; padding:5px;"> -->
                         <!-- <button type="button" class="btn btn-default"  onclick="minusbot(<?php // echo $id;?>)"><i class="fa fa-minus" aria-hidden="true"></i></button> -->
                         <!-- <input type="text" name="kgcount" value="1" id = "kilohere_<?php //echo $id; ?>" style="width:110px;height:25px;margin-top:8px; text-align:center;"> -->
-                        <input class="iquantity text-center" type="number" value="{{$iquantity}}"  data-id="{{$cart->product_id}}"  min="1" max="10" />
+                        <input class="iquantity text-center" id="iquantity" type="number" value="1" data-id="{{$cart->product_id}}"  min="1" max="10" />
+                        <input type="text" name="quantityHidden" id="quantityHidden">
                         <!-- <button type="button" class="btn btn-default mb-1" onclick="plusbot('<?php // echo $id ?>','<?php //echo $product_price ?>','<?php //echo $total ?>','<?php //echo $quantity ?>')"><i class="fa fa-plus" aria-hidden="true"></i></button> -->
                         <!-- </div> -->
                         <p class="total_cart font-weight-bold">RS:<span class="total_cart itotal ml-3"></span></p>
@@ -93,11 +94,12 @@
    $(document).ready(function(){
   $(document).on('click','.iquantity', function(e){
     let cart_id = $(this).data('id');
-    let quantity = $(".iquantity").val();
+    var data = document.getElementById("iquantity").value ;
+    var data2 = document.getElementById("quantityHidden").value=data ;
     var a = JSON.stringify(["{{$cart}}"]);
     $.ajax({
       type: 'POST',
-            url: "/CartGrandPrice/"+cart_id+"/"+quantity,
+            url: "/CartGrandPrice/"+cart_id+"/"+data2,
             data: {option: a,"_token": "{{ csrf_token() }}",},
             dataType: 'json',
             success:function(response){

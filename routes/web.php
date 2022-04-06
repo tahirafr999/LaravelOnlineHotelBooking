@@ -48,7 +48,7 @@ Route::get('delete-product/{id}',[EcommerceProductController::class,'getdeleteHo
 Route::post('/countCart/{id}',[EcommerceProductController::class,'getCountCart']);
 
 //cart grand price total
-Route::post('/CartGrandPrice/{id}/{quantity}',[EcommerceProductController::class,'getCartGrandPrice']);
+Route::post('/CartGrandPrice/{id}/{data}',[EcommerceProductController::class,'getCartGrandPrice']);
 
 
 
