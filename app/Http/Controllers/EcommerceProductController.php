@@ -177,4 +177,17 @@ Public function getCartAllProducts(){
     return view('cart_details', ['product'=>$CartList]);
 }
 
+public function getCartGrandPrice(Request $request, $id, $idq){
+    dd($idq);
+    // $ecommerce_products = DB::table('carts')->where('product_id', $id)->first();
+    // $quantity = $request->iquantity;
+    // // echo "<pre>"; print_r($quantity); 
+    // // dd($quantity);
+    // $product_quantity = 1; 
+
+    // $productPrice = $ecommerce_products->product_price;
+    // $addPrice = $productPrice * $product_quantity;
+    // // echo "<pre>"; print_r($addPrice); 
+}
+
 }

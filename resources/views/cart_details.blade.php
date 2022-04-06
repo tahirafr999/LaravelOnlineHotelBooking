@@ -23,16 +23,17 @@
                           <p class="text-muted" style="font-size:20px;">{{$cart->product_author}}</p>
                           <p class="text-muted" style="font-size:20px;">{{$cart->product_category}}</p>
                           <input type="text" class="text-muted" style="font-size:20px;"  value="{{$cart->product_price}}"> <span></span></p>
-                          <input class="iprice" type="hidden" value="{{$cart->product_price}}">
+                          <input class="iprice" type="hidden" value="{{$cart->product_price}}" data-id="{{$cart->product_id}}">
                           <p class="mr-4"><a href='cart_details.php?cart_product_id=$id'><i class='fa fa-trash-o fa-2x mt-4'></i><a href='cart_details.php?cart_product_id=$id'><span style='text-decoration:none;margin-left:15px;'>Remove Item</span></a></p>
                         </div> 
                         <!-- card inner col -->
                          <!-- card inner col -->
                         <div class="col-md-2 col-xs-6 ">
+                            <?php $iquantity = 1; ?>
                         <!-- <div class="btn-group float-left" role="group" aria-label="Basic example" style="border:1px solid black; border-radius:5px;width:200px; padding:5px;"> -->
                         <!-- <button type="button" class="btn btn-default"  onclick="minusbot(<?php // echo $id;?>)"><i class="fa fa-minus" aria-hidden="true"></i></button> -->
                         <!-- <input type="text" name="kgcount" value="1" id = "kilohere_<?php //echo $id; ?>" style="width:110px;height:25px;margin-top:8px; text-align:center;"> -->
-                        <input class="iquantity text-center" type="number"  onchange='subTotal()' value="<?php echo  $quantity = 1; ?>"  min='1' max='10' >
+                        <input class="iquantity text-center" type="number" value="{{$iquantity}}"  data-id="{{$cart->product_id}}"  min="1" max="10" />
                         <!-- <button type="button" class="btn btn-default mb-1" onclick="plusbot('<?php // echo $id ?>','<?php //echo $product_price ?>','<?php //echo $total ?>','<?php //echo $quantity ?>')"><i class="fa fa-plus" aria-hidden="true"></i></button> -->
                         <!-- </div> -->
                         <p class="total_cart font-weight-bold">RS:<span class="total_cart itotal ml-3"></span></p>
@@ -89,31 +90,28 @@
 
 <script>
    
-    // console.log(gtotal);
-   
+   $(document).ready(function(){
+  $(document).on('click','.iquantity', function(e){
+    let cart_id = $(this).data('id');
+    let quantity = $(".iquantity").val();
+    var a = JSON.stringify(["{{$cart}}"]);
+    $.ajax({
+      type: 'POST',
+            url: "/CartGrandPrice/?cartId="+cart_id+"&Quantity="+quantity,
+            data: {option: a,"_token": "{{ csrf_token() }}",},
+            dataType: 'json',
+            success:function(response){
+            if(response.status == 200){
+              toastr.success(response.message);
+              $("#mydiv").load(location.href + " #mydiv");
 
+            }
+           }
 
-    function subTotal(){
-        let gt = 0;
-        let price = {{$cart->product_price}};
-    let iprice = document.getElementsByClassName('iprice').innerHTML = price;
-    alert(iprice);
-    let iquantity = document.getElementsByClassName('iquantity');
-    let itotal = document.getElementsByClassName('itotal');
-    let gtotal = document.getElementById('gtotal'); 
-        for(i=0;i<iprice.length; i++){
+    });
 
-            itotal[i].innerText=(iprice[i].value)*(iquantity[i].value);
-             gt = gt+(iprice[i].value)*(iquantity[i].value);
-        }
-        gtotal=itotal;
-        // console.log(gtotal);
-         document.getElementById("gtotal").innerHTML = gtotal;
-        // alert(gtotal);
-        let tglobaltest = document.getElementById('tglobal').innerHTML = gtotal;
-    //   console.log(tglobaltest);
-    }
+  });
+});
 
-    subTotal();
 
 </script>

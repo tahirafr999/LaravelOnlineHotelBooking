@@ -45,8 +45,10 @@ Route::post('update-product/{id}',[EcommerceProductController::class,'getupdateP
 Route::get('delete-product/{id}',[EcommerceProductController::class,'getdeleteHotel']);
 
 // Cart Count 
-Route::post('/countCart/{id}',[EcommerceProductController::class,'getCountCart']);
+Route::post('/countCart/{id}/{idq}',[EcommerceProductController::class,'getCountCart']);
 
+//cart grand price total
+Route::post('/CartGrandPrice/{id}',[EcommerceProductController::class,'getCartGrandPrice']);
 
 
 
