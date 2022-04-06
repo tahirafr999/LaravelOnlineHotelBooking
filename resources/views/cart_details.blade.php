@@ -49,7 +49,10 @@
             @endforeach  
         </div>   <!-- col -->
 
-        
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit hic pariatur, eveniet nulla laborum ipsum repellendus ratione recusandae praesentium! Numquam expedita perspiciatis reiciendis quisquam rerum. Atque nostrum assumenda amet voluptas.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum libero commodi, harum aperiam quod laboriosam quis quidem a blanditiis dolores atque, nesciunt nostrum quo soluta repudiandae itaque perferendis? Laboriosam, vitae.
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam consequatur omnis eveniet officia! Laboriosam iusto provident, odio quo adipisci mollitia, quas omnis ipsa accusantium harum eos delectus praesentium saepe maxime.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, numquam nam iste voluptatum consequatur quo voluptatem delectus error ullam minima reprehenderit ratione alias! Consequuntur dicta cupiditate vero obcaecati porro id!
 
         
         <!-- col 2 -->
