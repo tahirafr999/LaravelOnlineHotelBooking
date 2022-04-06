@@ -48,8 +48,8 @@
             </div>  <!-- card -->    
             @endforeach  
         </div>   <!-- col -->
-      
-Lorem, ipsum dolor sit amet consectetur adipisicing elit
+
+        
 
         
         <!-- col 2 -->
