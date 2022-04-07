@@ -29,8 +29,9 @@
                         <!-- card inner col -->
                          <!-- card inner col -->
                         <div class="col-md-2 col-xs-6 ">
-                            
-                            <input type="hidden" name="" value="<?php $quantity = 1; ?>" id="">
+                            <?php $quantity = 1; ?>
+                            {{$id = $cart->product_id }}
+                            <input type="text" name="" value="<?php echo $quantity ?>" id='quantityvalue_'.<?php echo $id  ?>/>
                         <!-- <div class="btn-group float-left" role="group" aria-label="Basic example" style="border:1px solid black; border-radius:5px;width:200px; padding:5px;"> -->
                         <!-- <button type="button" class="btn btn-default"  onclick="minusbot(<?php // echo $id;?>)"><i class="fa fa-minus" aria-hidden="true"></i></button> -->
                         <!-- <input type="text" name="kgcount" value="1" id = "kilohere_<?php //echo $id; ?>" style="width:110px;height:25px;margin-top:8px; text-align:center;"> -->
@@ -131,8 +132,13 @@
    $(document).ready(function(){
   $(document).on('click','.iquantity', function(e){
     let cart_id = $(this).data('id');
-    alert(cart_id);
-    var data = document.getElementById("iquantity").value ;
+      addvalue = document.getElementById("quantityvalue"+<?php $id ?>).value;
+      var x=parseInt(addvalue)+1;
+      var s= document.getElementById('quantityvalue');
+       s.value = x;
+    // var newQuantity = cart_id+1;
+    alert(x);  return;
+    // var data = document.getElementById("iquantity").value ;
     var data2 = document.getElementById("quantityHidden").value=data ;
     var a = JSON.stringify(["{{$cart}}"]);
     $.ajax({
