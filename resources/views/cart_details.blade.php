@@ -29,12 +29,18 @@
                         <!-- card inner col -->
                          <!-- card inner col -->
                         <div class="col-md-2 col-xs-6 ">
-                            <?php //$iquantity = 1; ?>
+                            
+                            <input type="hidden" name="" value="<?php $quantity = 1; ?>" id="">
                         <!-- <div class="btn-group float-left" role="group" aria-label="Basic example" style="border:1px solid black; border-radius:5px;width:200px; padding:5px;"> -->
                         <!-- <button type="button" class="btn btn-default"  onclick="minusbot(<?php // echo $id;?>)"><i class="fa fa-minus" aria-hidden="true"></i></button> -->
                         <!-- <input type="text" name="kgcount" value="1" id = "kilohere_<?php //echo $id; ?>" style="width:110px;height:25px;margin-top:8px; text-align:center;"> -->
                         <input class="iquantity text-center" id="iquantity" type="number" value="1" data-id="{{$cart->product_id}}"  min="1" max="10" />
-                        <input type="text" name="quantityHidden" id="quantityHidden">
+                        <!-- <div class="cart-info quantity d-flex">
+                        <div class="btn-increment-decrement btn-default" style="width:50px;" onClick="decrement_quantity({{$cart->product_id}})" >-</div>
+                        <input class="input-quantity" type="number" onClick="increment_quantity()" value="<?php echo $quantity; ?>" data-id="{{$cart->product_id}}"  style="width:50px;">
+                        <div class="btn-increment-decrement btn-default" style="width:50px;"
+                        onClick="increment_quantity({{$cart->product_id}})" data-id="{{$cart->product_id}}">+</div>
+                        </div> -->
                         <!-- <button type="button" class="btn btn-default mb-1" onclick="plusbot('<?php // echo $id ?>','<?php //echo $product_price ?>','<?php //echo $total ?>','<?php //echo $quantity ?>')"><i class="fa fa-plus" aria-hidden="true"></i></button> -->
                         <!-- </div> -->
                         <p class="total_cart font-weight-bold">RS:<span class="total_cart itotal ml-3"></span></p>
@@ -86,11 +92,46 @@
 <script src="{{ asset('jquery/jquery-3.6.0.min.js') }}"></script>
 
 
+
 <script>
+ 
+// function increment_quantity() {
+//     let  cart_id_second = $(this).data('id');
+//     alert(cart_id_second);return;
+//     var inputQuantityElement = $("#input-quantity-"+cart_id);
+   
+//     var newQuantity = parseInt($(inputQuantityElement).val())+1;
+//     save_to_db(cart_id, newQuantity);
+// }
+
+// function decrement_quantity(cart_id) {
+//     var inputQuantityElement = $("#input-quantity-"+cart_id);
+//     if($(inputQuantityElement).val() > 1) 
+//     {
+//     var newQuantity = parseInt($(inputQuantityElement).val()) - 1;
+//     save_to_db(cart_id, newQuantity);
+//     }
+// }
+
+// function save_to_db(cart_id, new_quantity) {
+// 	var inputQuantityElement = $("#input-quantity-"+cart_id);
+//     $.ajax({
+// 		url : "update_cart_quantity.php",
+// 		data : "cart_id="+cart_id+"&new_quantity="+new_quantity,
+// 		type : 'post',
+// 		success : function(response) {
+// 			$(inputQuantityElement).val(new_quantity);
+// 		}
+// 	});
+// }
+
+
+
    
    $(document).ready(function(){
   $(document).on('click','.iquantity', function(e){
     let cart_id = $(this).data('id');
+    alert(cart_id);
     var data = document.getElementById("iquantity").value ;
     var data2 = document.getElementById("quantityHidden").value=data ;
     var a = JSON.stringify(["{{$cart}}"]);
