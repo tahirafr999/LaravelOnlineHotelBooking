@@ -1,13 +1,7 @@
 
 
                             </thead>
-                            <tbody>
-                                <?php $total_amount = 0; ?>
-                                @foreach($userCart as $cart)
-                                <tr>
-                                    <td class="thumbnail-img">
-                                        <a href="#">
-						
+                        
                                         
 	
 
