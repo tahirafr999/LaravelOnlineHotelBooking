@@ -177,15 +177,9 @@ Public function getCartAllProducts(){
     return view('cart_details', ['product'=>$CartList]);
 }
 
-public function getCartGrandPrice(Request $request, $id, $iquantity){
-   
-    // echo "<pre>"; print_r($id); 
-    echo "<pre>"; print_r($iquantity); 
-
-    // $ecommerce_products = DB::table('carts')->where('product_id', $id)->first();
-    // $productPrice = $ecommerce_products->product_price;
-    // $addPrice = $productPrice * $product_quantity;
-    // echo "<pre>"; print_r($addPrice); 
+public function updateCartQuantity($id,$quantity){
+   $cartQuantity =  DB::table('carts')->where('id',$id)->update(['quantity' => DB::raw('quantity + 1') ]);
+    return redirect('/cart_details')->with('flash_message_success','Product Quantity has been updated Successfully');
 }
 
 }
