@@ -1,39 +1,4 @@
-
-
-                            </thead>
-                        
-                                        
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    @extends('final_year_project.layouts.master')
+@extends('final_year_project.layouts.master')
 @section('content')
 <div class="container-fluid">
 <!--section start -->
