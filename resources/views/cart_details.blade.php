@@ -40,7 +40,7 @@
                                 <tr>
                                     <td class="thumbnail-img">
                                         <a href="#">
-									<img class="img-fluid" src="{{ asset('images/'.$cart->product_image) }}" alt="" />
+									<img class="img-fluid" src="{{ asset('images/'.$cart->product_image) }}"  alt="" style="width:50px;height:50px;" />
 								</a>
                                     </td>
                                     <td class="name-pr">
@@ -76,19 +76,19 @@
             </div>
 
             <div class="row my-5">
-                <div class="col-lg-6 col-sm-6">
+                <div class="col-lg-8 col-sm-6">
                     <div class="coupon-box">
                         <form action="{{url('/cart/apply-coupon')}}" method="post"> {{csrf_field()}}
-                        <div class="input-group input-group-sm">
+                        <div class="input-group input-group-sm w-75">
                             <input class="form-control" placeholder="Enter your coupon code" name="coupon_code" aria-label="Coupon code" type="text">
                             <div class="input-group-append">
-                                <button class="btn btn-theme" type="submit">Apply Coupon</button>
+                                <button class="btn btn-info" type="submit">Apply Coupon</button>
                             </div>
                         </div>
                     </form>
                     </div>
                 </div>
-                <div class="col-lg-6 col-sm-6">
+                <div class="col-lg-4 col-sm-6">
                     <div class="order-box">
                         <h3>Order summary</h3>
                         @if(!empty(Session::get('CouponAmount')))
@@ -115,7 +115,7 @@
                         @endif
                       
                     </div>
-                    <div class="col-12 d-flex shopping-box"><a href="{{url('/checkout')}}" class="ml-auto btn hvr-hover">Checkout</a>
+                    <div class="col-12 shopping-box btn btn-info"><a href="{{url('/checkout')}}" class="text-white text-center">Checkout</a>
                     </div>
                 </div>
             </div>

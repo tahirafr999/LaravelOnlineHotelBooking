@@ -14,7 +14,7 @@
                     <div class="row">
                         <!-- card inner col -->
                         <div class="col-md-3 col-xs-6"> 
-                        <img src="{{ asset('images/'.$cart->product_image) }}" alt="">
+                        <img src="{{ asset('images/'.$cart->product_image) }}" alt="" style="width:50px; height:50px;">
                         </div> 
                         <!-- card inner col -->
                          <!-- card inner col -->
