@@ -131,6 +131,7 @@
    
    $(document).ready(function(){
   $(document).on('click','.iquantity', function(e){
+      
     var value = parseInt(document.getElementById('quantityvalue').value, 10);
   value = isNaN(value) ? 0 : value;
   value++;

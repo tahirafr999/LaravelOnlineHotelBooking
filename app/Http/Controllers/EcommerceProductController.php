@@ -179,7 +179,11 @@ Public function getCartAllProducts(){
 
 public function updateCartQuantity($id,$quantity){
    $cartQuantity =  DB::table('carts')->where('id',$id)->update(['quantity' => DB::raw('quantity + 1') ]);
-    return redirect('/cart_details')->with('flash_message_success','Product Quantity has been updated Successfully');
+   return response()->json([
+    'status'=>200,
+    'message'=>$cartQuantity
+]);
+    // return redirect('/cart_details')->with('flash_message_success','Product Quantity has been updated Successfully');
 }
 
 }

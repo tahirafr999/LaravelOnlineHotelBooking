@@ -53,8 +53,8 @@
                                     </td>
                                 <td class="quantity-box">
                                     <?php $productId =  $cart->product_id ?>
-                                <a href="#" class="increment"  style="font-size:25px;" onclick="increment_quantity(<?php echo $productId ?>);return false">+</a>
-                                 <input class="clasvalue" type="text" name="" id="setValue" value="">
+                                <a href="" class="increment" data-id="<?php echo $productId ?>"  style="font-size:25px;">+</a>
+                                 <!-- <input class="clasvalue" type="text" name="" id="setValue" value="<?php echo $productId ?>"> -->
                                 
                               
                                     <input type="text" size="4" value="{{$cart->quantity}}" min="0" step="1" class="c-input-text" id="qty_text">
@@ -131,20 +131,29 @@
 @endsection
 <script src="{{ asset('jquery/jquery-3.6.0.min.js') }}"></script>
 <script>
-    function increment_quantity(product_id) {
-            let id = product_id;
-            document.getElementById('setValue').value = id;
-        }
+    // function increment_quantity(product_id) {
+    //         let id = product_id;
+    //         document.getElementById('setValue').value = id;
+    //     }
 </script>
 <script>
-        $(".clasvalue").click(function () {
-  alert(this.attr('value'));
+ $(document).ready(function(){
+    $(document).on('click','.increment', function(e){
+        e.preventDefault() ;
+    var cart_id = $(this).data('id');
+    // alert(cart_id);
+    $.ajax({
+        url: "/cart/update-quantity/1/"+cart_id,
+        success:function(response){
+            // $("#qty_text").load("#qty_text");
+              toastr.success(response.message);
+            
+
+            }
 });
-    // $.ajax({
-    //     url: "/cart/update-quantity/"+value+"/1",
-    //      success: function(result){
-    //   $("#div1").html(result);
-    // }});
+    });
+
+    });
 </script>
 
 
