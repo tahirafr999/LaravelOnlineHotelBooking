@@ -52,8 +52,12 @@
                                         <p>PKR {{$cart->product_price}}</p>
                                     </td>
                                 <td class="quantity-box">
-                                <a href="{{url('/cart/update-quantity/'.$cart->id.'/1')}}"  style="font-size:25px;">+</a>
-                                    <input type="text" size="4" value="{{$cart->quantity}}" min="0" step="1" class="c-input-text qty text">
+                                    <?php $productId =  $cart->product_id ?>
+                                <a href="#" class="increment"  style="font-size:25px;" onclick="increment_quantity(<?php echo $productId ?>);return false">+</a>
+                                 <input class="clasvalue" type="text" name="" id="setValue" value="">
+                                
+                              
+                                    <input type="text" size="4" value="{{$cart->quantity}}" min="0" step="1" class="c-input-text" id="qty_text">
                                     @if($cart->quantity>1)
                                     <a href="{{url('/cart/update-quantity/'.$cart->id.'/-1')}}"  style="font-size:25px;">-</a>
                                    @endif
@@ -126,6 +130,22 @@
 
 @endsection
 <script src="{{ asset('jquery/jquery-3.6.0.min.js') }}"></script>
+<script>
+    function increment_quantity(product_id) {
+            let id = product_id;
+            document.getElementById('setValue').value = id;
+        }
+</script>
+<script>
+        $(".clasvalue").click(function () {
+  alert(this.attr('value'));
+});
+    // $.ajax({
+    //     url: "/cart/update-quantity/"+value+"/1",
+    //      success: function(result){
+    //   $("#div1").html(result);
+    // }});
+</script>
 
 
 
