@@ -99,7 +99,9 @@
            success:function(response){
             if(response.status == 200){
               toastr.success(response.message);
+              // mydiv is on another page . Header page
               $("#mydiv").load(location.href + " #mydiv");
+            
 
             }
            }

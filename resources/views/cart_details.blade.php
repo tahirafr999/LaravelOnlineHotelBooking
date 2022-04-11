@@ -22,7 +22,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="table-main table-responsive">
+                    <div class="table-main table-responsive" id="cart_table">
                         <table class="table">
                             <thead>
                                 <tr>
@@ -145,7 +145,10 @@
     $.ajax({
         url: "/cart/update-quantity/1/"+cart_id,
         success:function(response){
-            // $("#qty_text").load("#qty_text");
+            // $("#cart_table").load(window.location + "#cart_table");
+          
+
+            // document.getElementById('#qty_text').value+1;
               toastr.success(response.message);
             
 
@@ -156,5 +159,14 @@
     });
 </script>
 
+<!-- var str,
+            element = document.getElementById('qty_text');
+            if (element != null) {
+            str = element.value + 1;
+            alert(str);
+            }
+            else {
+            str = null;
+            } -->
 
 
