@@ -22,7 +22,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="table-main table-responsive" id="cart_table">
+                    <div class="table-main table-responsive">
                         <table class="table">
                             <thead>
                                 <tr>
@@ -52,12 +52,8 @@
                                         <p>PKR {{$cart->product_price}}</p>
                                     </td>
                                 <td class="quantity-box">
-                                    <?php $productId =  $cart->product_id ?>
-                                <a href="" class="increment" data-id="<?php echo $productId ?>"  style="font-size:25px;">+</a>
-                                 <!-- <input class="clasvalue" type="text" name="" id="setValue" value="<?php echo $productId ?>"> -->
-                                
-                              
-                                    <input type="text" size="4" value="{{$cart->quantity}}" min="0" step="1" class="c-input-text" id="qty_text">
+                                <a href="{{url('/cart/update-quantity/'.$cart->product_id.'/1')}}"  style="font-size:25px;">+</a>
+                                    <input type="text" size="4" value="{{$cart->quantity}}" min="0" step="1" class="c-input-text qty text">
                                     @if($cart->quantity>1)
                                     <a href="{{url('/cart/update-quantity/'.$cart->id.'/-1')}}"  style="font-size:25px;">-</a>
                                    @endif
@@ -130,43 +126,10 @@
 
 @endsection
 <script src="{{ asset('jquery/jquery-3.6.0.min.js') }}"></script>
-<script>
-    // function increment_quantity(product_id) {
-    //         let id = product_id;
-    //         document.getElementById('setValue').value = id;
-    //     }
-</script>
-<script>
- $(document).ready(function(){
-    $(document).on('click','.increment', function(e){
-        e.preventDefault() ;
-    var cart_id = $(this).data('id');
-    // alert(cart_id);
-    $.ajax({
-        url: "/cart/update-quantity/1/"+cart_id,
-        success:function(response){
-            // $("#cart_table").load(window.location + "#cart_table");
-          
 
-            // document.getElementById('#qty_text').value+1;
-              toastr.success(response.message);
-            
 
-            }
-});
-    });
 
-    });
-</script>
 
-<!-- var str,
-            element = document.getElementById('qty_text');
-            if (element != null) {
-            str = element.value + 1;
-            alert(str);
-            }
-            else {
-            str = null;
-            } -->
+
 
 
