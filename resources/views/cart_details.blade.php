@@ -51,9 +51,12 @@
                                     <td class="price-pr">
                                         <p>PKR {{$cart->product_price}}</p>
                                     </td>
-                                <td class="quantity-box">
-                                <a href="{{url('/cart/update-quantity/'.$cart->product_id.'/1')}}"  style="font-size:25px;">+</a>
-                                    <input type="text" size="4" value="{{$cart->quantity}}" min="0" step="1" class="c-input-text qty text">
+                                <td class="quantity-box" id="cart_quantitybox">
+                                    <h1 id="ajax_body" style="display:block;"></h1>
+                                <a href="#"  class="increment" data-id="{{$cart->product_id}}" style="font-size:25px;">+</a>
+                            
+                                    <input type="text" size="4"  value="{{$cart->quantity}}" min="0" step="1" class="c-input-text qty text">
+                                 
                                     @if($cart->quantity>1)
                                     <a href="{{url('/cart/update-quantity/'.$cart->id.'/-1')}}"  style="font-size:25px;">-</a>
                                    @endif
@@ -127,9 +130,46 @@
 @endsection
 <script src="{{ asset('jquery/jquery-3.6.0.min.js') }}"></script>
 
+<script>
+    // function increment_quantity(product_id) {
+    //         let id = product_id;
+    //         document.getElementById('setValue').value = id;
+    //     }
+</script>
+<script>
+ $(document).ready(function(){
+    $(document).on('click','.increment', function(e){
+        e.preventDefault() ;
+    var cart_id = $(this).data('id');
+    alert(cart_id);
+    $.ajax({
+        url: "/cart/update-quantity/1/"+cart_id,
+        
+        success:function(response){
 
+      
+          
 
+            // document.getElementById('#qty_text').value+1;
+              toastr.success(response.message);
+            
 
+            },
+});
+    });
+
+    });
+</script>
+
+<!-- var str,
+            element = document.getElementById('qty_text');
+            if (element != null) {
+            str = element.value + 1;
+            alert(str);
+            }
+            else {
+            str = null;
+            } -->
 
 
 
