@@ -182,7 +182,7 @@ public function updateCartQuantity($quantity,$id){
 $cartQuantityIncrement =  DB::table('carts')->where('product_id',$id)->update(['quantity' => DB::raw('quantity + 1') ]);
 $cartQuantity =   DB::table('carts')->select('quantity')->where('product_id',$id)->get();
 // dd($cartQuantity);
-   return response()->json(array('success'=>true, 'html'=>$cartQuantity));
+   return response();
     // return redirect('/cart_details')->with('flash_message_success','Product Quantity has been updated Successfully');
 }
 

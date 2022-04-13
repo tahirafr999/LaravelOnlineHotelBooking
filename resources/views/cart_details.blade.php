@@ -51,8 +51,8 @@
                                     <td class="price-pr">
                                         <p>PKR {{$cart->product_price}}</p>
                                     </td>
-                                <td class="quantity-box" id="cart_quantitybox">
-                                    <h1 id="ajax_body" style="display:block;"></h1>
+                                <td class="quantity-box">
+                                    <h1 id="ajax_body"></h1>
                                 <a href="#"  class="increment" data-id="{{$cart->product_id}}" style="font-size:25px;">+</a>
                             
                                     <input type="text" size="4"  value="{{$cart->quantity}}" min="0" step="1" class="c-input-text qty text">
@@ -146,11 +146,8 @@
         url: "/cart/update-quantity/1/"+cart_id,
         
         success:function(response){
-
-      
-          
-
             // document.getElementById('#qty_text').value+1;
+            location.reload(true);
               toastr.success(response.message);
             
 
