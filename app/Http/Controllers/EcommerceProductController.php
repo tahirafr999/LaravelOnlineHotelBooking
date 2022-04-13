@@ -10,6 +10,7 @@ use Validator;
 use DataTables;
 use DB;
 use Session;
+use Response;
 use Illuminate\Support\Facades\Auth;
 class EcommerceProductController extends Controller
 {
@@ -182,7 +183,11 @@ public function updateCartQuantity($quantity,$id){
 $cartQuantityIncrement =  DB::table('carts')->where('product_id',$id)->update(['quantity' => DB::raw('quantity + 1') ]);
 $cartQuantity =   DB::table('carts')->select('quantity')->where('product_id',$id)->get();
 // dd($cartQuantity);
-   return response();
+// return \Response::json($response);
+return Response::json(array(
+    'success' => true,
+    'message'   => "Change Cart Quantity Successfully",
+  )); 
     // return redirect('/cart_details')->with('flash_message_success','Product Quantity has been updated Successfully');
 }
 
