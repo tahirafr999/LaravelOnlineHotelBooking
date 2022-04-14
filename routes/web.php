@@ -50,6 +50,9 @@ Route::post('/countCart/{id}',[EcommerceProductController::class,'getCountCart']
 //cart grand price total
 Route::post('/CartGrandPrice',[EcommerceProductController::class,'getCartGrandPrice']);
 Route::get('/cart/update-quantity/{quantity}/{id}','EcommerceProductController@updateCartQuantity');
+Route::get('/checkout',[EcommerceProductController::class,'getCheckout']);
+
+// Route::get('/checkout','EcommerceProductController@checkout');
 
 
 

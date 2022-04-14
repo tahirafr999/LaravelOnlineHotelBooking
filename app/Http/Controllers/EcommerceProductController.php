@@ -160,7 +160,7 @@ Public function getCountCart(Request $request, $id){
     $EcommerceProduct->product_id = $ecommerce_products->id;
     $EcommerceProduct->product_name = $ecommerce_products->title;
     $EcommerceProduct->product_author = $ecommerce_products->author;
-    $EcommerceProduct->add_to_cart_id = Auth::id();
+    $EcommerceProduct->	addToCartUserID = Auth::id();
     $EcommerceProduct->product_category = $ecommerce_products->category;
     $EcommerceProduct->product_image = $ecommerce_products->photo;
     $EcommerceProduct->product_price = $ecommerce_products->product_price;
@@ -189,6 +189,12 @@ return Response::json(array(
     'message'   => "Change Cart Quantity Successfully",
   )); 
     // return redirect('/cart_details')->with('flash_message_success','Product Quantity has been updated Successfully');
+}
+
+public function getCheckout(Request $request){
+    
+    $user_id = Auth::user()->id;
+    dd($user_id);
 }
 
 }

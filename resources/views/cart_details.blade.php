@@ -153,7 +153,7 @@
            
            
             toastr.success(response.message);
-            window.location.reload();
+             window.location.reload();
 
             // $("#msg").append("success"+message);
             
