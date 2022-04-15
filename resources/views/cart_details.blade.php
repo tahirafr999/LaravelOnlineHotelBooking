@@ -116,11 +116,12 @@
                         <div class="d-flex gr-total">
                             <h5>Grand Total</h5>
                             <div class="ml-auto h5"> PKR  <?php echo $total_amount; ?> </div>
+                            <input type="hidden" id="total_amount" value="<?php echo $total_amount; ?>">
                         </div>
                         @endif
                       
                     </div>
-                    <div class="col-12 shopping-box btn btn-info"><a href="{{url('/checkout')}}" class="text-white text-center">Checkout</a>
+                    <div class="col-12 shopping-box btn btn-info checkout_amount"><a href="checkout" class="text-white text-center">Checkout</a>
                     </div>
                 </div>
             </div>
@@ -159,8 +160,18 @@
             
 
             },
-});
+      });
     });
+
+    // $(document).on('click','.checkout_amount', function(e){
+    //     e.preventDefault() ;
+    //     var totalAmount = $('#total_amount').val(); 
+    //     // alert(totalAmount);
+    //     $.ajax({
+    //     url: "/checkout/"+totalAmount
+        
+    //     });
+    // });
 
     });
 </script>

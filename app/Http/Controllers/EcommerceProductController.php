@@ -191,10 +191,16 @@ return Response::json(array(
     // return redirect('/cart_details')->with('flash_message_success','Product Quantity has been updated Successfully');
 }
 
-public function getCheckout(Request $request){
-    
+public function getCheckout(){
     $user_id = Auth::user()->id;
-    dd($user_id);
+    $cartDetails = Cart::select('product_name')->where('addToCartUserID',$user_id)->count();
+    $shippingDetails = array();
+    if($cartDetails > 0){
+        $checkoutDetails = Cart::where('addToCartUserID',$user_id)->first();
+    }
+    return view('checkout_details',['checkoutProducts'=>$checkoutDetails]);
+    
+    // dd($totalAmount);
 }
 
 }
