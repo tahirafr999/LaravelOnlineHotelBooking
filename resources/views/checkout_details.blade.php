@@ -1,100 +1,5 @@
-
-
-<div class="contact-box-main">
-
-    <div class="container">
-
-        <div class="row">
-            <div class="col-lg-6 col-sm-12">
-                <div class="contact-form-right">
-                    <h2>Billing Address</h2>
-                    
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                   
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                 
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                   
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                   
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                 
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                
-                                </div>
-                            </div>
-                            
-                            
-                        </div>
-                   
-                </div>
-            </div>
-            <div class="col-lg-6 col-sm-12">
-                <div class="contact-form-right">
-                    <h2>Shipping Details</h2>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                            </div>
-                        </div>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-        
-        </div>
-
-    </div>
-
-</div>
-
+@extends('final_year_project.layouts.master')
+@section('content')
 <!-- Start Cart  -->
 <div class="cart-box-main">
     <div class="container">
@@ -115,26 +20,31 @@
                         </thead>
                         <tbody>
                             <?php $total_amount = 0; ?>
+                            @foreach($checkoutDetailPage as $cart)
                             <tr>
                                 <td class="thumbnail-img">
                                     <a href="#">
+                                <img class="img-fluid" src="{{asset('images/'.$cart->product_image)}}" alt="" style="width:50px;height:50px;" />
                             </a>
                                 </td>
                                 <td class="name-pr">
                                         
-									<p>{{$checkoutProducts['product_name']}}</p>
+									{{$cart->product_name}}
+                                    <p>{{$cart->product_price}} | {{$cart->product_category}}</p>
                                     </td>
-                                
                                     <td class="price-pr">
-
+                                        <p>PKR {{$cart->product_price}}</p>
                                     </td>
                                 <td class="quantity-box">
+                                    {{$cart->quantity}}
                                 </td>
                                 <td class="total-pr">
+                                    <p>PKR {{$cart->product_price*$cart->quantity}}</p>
                                     </td>
                                 
                             </tr>
-                        
+                            <?php $total_amount = $total_amount + ($cart->product_price*$cart->quantity); ?>
+                           @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -147,6 +57,7 @@
                     <h3>Your Total</h3>
                     <div class="d-flex">
                         <h4>Cart Sub Total</h4>
+                        <div class="ml-auto font-weight-bold"> PKR  {{$total_amount}} </div>
                     </div>
                     <div class="d-flex">
                         <h4>Shipping Cost (+)</h4>
@@ -190,10 +101,11 @@
                     <label class="custom-control-label" for="debit">Stripe</label>
                 </div>
                 <div class="col-12 d-flex shopping-box">
-                    <button  type="submit" class="ml-auto btn hvr-hover" onclick="return selectPaymentMethod();" style="color:white;">Place Order</button> 
+                    <button  type="submit" class="ml-auto btn hvr-hover btn-info" onclick="return selectPaymentMethod();" style="color:white;">Place Order</button> 
                 </div>
             </div>
         </form>
     </div>
 </div>
 <!-- End Cart -->
+@endsection

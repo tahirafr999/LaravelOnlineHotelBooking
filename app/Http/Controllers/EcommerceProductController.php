@@ -193,12 +193,19 @@ return Response::json(array(
 
 public function getCheckout(){
     $user_id = Auth::user()->id;
-    $cartDetails = Cart::select('product_name')->where('addToCartUserID',$user_id)->count();
-    $shippingDetails = array();
-    if($cartDetails > 0){
-        $checkoutDetails = Cart::where('addToCartUserID',$user_id)->first();
+    // $cartDetails = Cart::select('product_name')->where('addToCartUserID',$user_id)->count();
+    // $checkoutDetails = Cart::select()->where('addToCartUserID',$user_id)->first();
+    $checkoutDetails = DB::table('carts')->where('addToCartUserID',$user_id)->count();
+    $cartData = DB::table('carts')->where('addToCartUserID',$user_id)->first();
+    // echo "</pre>"; print_r($checkoutDetails); exit;
+    // $shippingDetails = array();
+    if($checkoutDetails > 0){
+        $checkoutDetailPage = DB::table('carts')->where('addToCartUserID',$user_id)->get();
     }
-    return view('checkout_details',['checkoutProducts'=>$checkoutDetails]);
+    // dd($checkoutDetails);
+    return view('checkout_details',compact('checkoutDetailPage','cartData'));
+    // return view('checkout_details', ['checkoutProducts' => $checkoutDetailPage]);
+    // eturn view('user.index', ['users' => $users]);
     
     // dd($totalAmount);
 }
