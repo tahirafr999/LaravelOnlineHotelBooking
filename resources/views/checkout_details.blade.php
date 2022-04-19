@@ -85,7 +85,7 @@
             
         </div>
 
-        <form name="paymentForm" id="paymentForm" action="{{url('/place-order')}}" method="post"> {{csrf_field()}}
+        <form > {{csrf_field()}}
            <input type="hidden" value="{{$grand_total}}" name="grand_total">
             <hr class="mb-4">
             <div class="title-left">
@@ -101,7 +101,7 @@
                     <label class="custom-control-label" for="debit">Stripe</label>
                 </div>
                 <div class="col-12 d-flex shopping-box">
-                    <button  type="submit" class="ml-auto btn hvr-hover btn-info" onclick="return selectPaymentMethod();" style="color:white;">Place Order</button> 
+                    <button type="button" class="ml-auto btn hvr-hover btn-info" style="color:white;" id="place_order">Place Order</button> 
                 </div>
             </div>
         </form>
@@ -109,3 +109,19 @@
 </div>
 <!-- End Cart -->
 @endsection
+<script src="{{ asset('jquery/jquery-3.6.0.min.js') }}"></script>
+
+<script>
+     $(document).ready(function(){
+         
+        $(document).on('click','#place_order', function(e){
+      if($('.stripe').is(':checked') || $('.cod').is(':checked')){
+        alert('checked');
+      }else{
+        alert('Please Select Payment Method');
+        return false;
+      }
+    }
+    
+});
+</script>
