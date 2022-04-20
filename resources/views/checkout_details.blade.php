@@ -116,12 +116,12 @@
          
         $(document).on('click','#place_order', function(e){
       if($('.stripe').is(':checked') || $('.cod').is(':checked')){
-        alert('checked');
+        // alert('checked');
       }else{
         alert('Please Select Payment Method');
         return false;
       }
-    }
+    });
     
 });
 </script>
