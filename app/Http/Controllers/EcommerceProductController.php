@@ -212,14 +212,35 @@ public function getCheckout(){
 }
 
 public function getPlaceOrder(Request $request){
+    $user_id = Auth::user()->id;
+    $payment_method = $request->payment_method;
+    $grand_total = $request->grand_total;
+    $userList = DB::table('users')->where('id',$user_id)->first();
     $order = new placeOrders ;
+    $order->user_id = $userList->id;
     $order->product_id = $request->product_id;
-    $order->product_name = "Shoe";
-    $order->product_price = "1200";
-    $order->product_category = "shoe";
+    $order->company_name = $userList->company_name;
+    $order->email = $userList->email;
     $order->grand_total = $request->grand_total;
     $order->payment_method = $request->payment_method;
     $order->save();
+    $order_id = DB::getPdo()->lastinsertID();
+
+    Session::put('order_id',$order_id);
+    Session::put('grand_total',$grand_total);
+
+    if($payment_method == "cod"){
+       return redirect('/thanks');
+    }else{
+        redirect('/stripe');
+    }
+
+}
+
+public function thanks(){
+    $user_id = Auth::user()->id;
+    DB::table('carts')->where('addToCartUserID',$user_id)->delete();
+    return view('cod_thanks');
 }
 
 }
