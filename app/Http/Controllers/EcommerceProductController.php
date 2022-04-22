@@ -210,4 +210,9 @@ public function getCheckout(){
     // dd($totalAmount);
 }
 
+public function getPlaceOrder(Request $request){
+//    echo "<pre>"; print_r($_POST); exit;
+
+}
+
 }

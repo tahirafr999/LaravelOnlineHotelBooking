@@ -85,7 +85,7 @@
             
         </div>
 
-        <form > {{csrf_field()}}
+        <form action="place-order" method="POST"> {{csrf_field()}}
            <input type="hidden" value="{{$grand_total}}" name="grand_total">
             <hr class="mb-4">
             <div class="title-left">
@@ -101,7 +101,7 @@
                     <label class="custom-control-label" for="debit">Stripe</label>
                 </div>
                 <div class="col-12 d-flex shopping-box">
-                    <button type="button" class="ml-auto btn hvr-hover btn-info" style="color:white;" id="place_order">Place Order</button> 
+                    <button type="submit" class="ml-auto btn hvr-hover btn-info" style="color:white;" id="place_order">Place Order</button> 
                 </div>
             </div>
         </form>
