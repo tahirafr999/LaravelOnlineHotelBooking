@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use App\EcommerceProduct;
 use App\Cart;
+use App\placeOrders;
 use Validator;
 use DataTables;
 use DB;
@@ -211,8 +212,14 @@ public function getCheckout(){
 }
 
 public function getPlaceOrder(Request $request){
-//    echo "<pre>"; print_r($_POST); exit;
-
+    $order = new placeOrders ;
+    $order->product_id = $request->product_id;
+    $order->product_name = "Shoe";
+    $order->product_price = "1200";
+    $order->product_category = "shoe";
+    $order->grand_total = $request->grand_total;
+    $order->payment_method = $request->payment_method;
+    $order->save();
 }
 
 }

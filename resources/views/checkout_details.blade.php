@@ -44,6 +44,8 @@
                                 
                             </tr>
                             <?php $total_amount = $total_amount + ($cart->product_price*$cart->quantity); ?>
+                            <?php $product_id = $cart->id; ?>
+
                            @endforeach
                         </tbody>
                     </table>
@@ -87,6 +89,8 @@
 
         <form action="place-order" method="POST"> {{csrf_field()}}
            <input type="hidden" value="{{$grand_total}}" name="grand_total">
+           <input name="product_id" value="{{$product_id}}"  type="hidden">
+
             <hr class="mb-4">
             <div class="title-left">
                 <h3>Payments</h3>
