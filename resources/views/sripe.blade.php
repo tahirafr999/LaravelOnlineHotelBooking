@@ -77,7 +77,6 @@ var style = {
 };
 
 // Create an instance of the card Element.
-// my stripe account set up
 var card = elements.create('card', {style: style});
 
 // Add an instance of the card Element into the `card-element` <div>.
