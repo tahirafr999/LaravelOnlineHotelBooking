@@ -53,7 +53,7 @@ Route::get('/cart/update-quantity/{quantity}/{id}','EcommerceProductController@u
 Route::get('/checkout',[EcommerceProductController::class,'getCheckout']);
 Route::post('/place-order',[EcommerceProductController::class,'getPlaceOrder']);
 Route::get('/thanks',[EcommerceProductController::class,'thanks']);
-
+Route::get('/stripe ',[EcommerceProductController::class,'getStripe']); 
 
 // Route::get('/checkout','EcommerceProductController@checkout');
 

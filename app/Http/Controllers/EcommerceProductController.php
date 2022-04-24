@@ -243,4 +243,8 @@ public function thanks(){
     return view('cod_thanks');
 }
 
+public function getStripe(){
+    return view('stripe');
+}
+
 }
