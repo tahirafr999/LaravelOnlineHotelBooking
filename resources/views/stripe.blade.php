@@ -30,7 +30,7 @@
                 <div class="col-lg-6">
                     <script src="https://js.stripe.com/v3/"></script>
 
-                        <form action="/stripe" method="post" id="payment-form"> {{csrf_field()}}
+                        <form action="/stripe-payment" method="post" id="payment-form"> {{csrf_field()}}
                         <div class="form-row">
                             <b>Total Amount To Be Paid</b>
                             <input readonly name="total_amount" value="{{Session::get('grand_total')}}" class="form-control">

@@ -243,10 +243,13 @@ public function thanks(){
     return view('cod_thanks');
 }
 
-public function getStripe(Request $request){
-    $data = $request->all();
-    
+public function getStripe(){
+    return view('stripe');
+}
 
+public function getStripePayment(Request $request){
+    $data = $request->all();
+    dd($data);
     return view('stripe');
 }
 

@@ -53,8 +53,8 @@ Route::get('/cart/update-quantity/{quantity}/{id}','EcommerceProductController@u
 Route::get('/checkout',[EcommerceProductController::class,'getCheckout']);
 Route::post('/place-order',[EcommerceProductController::class,'getPlaceOrder']);
 Route::get('/thanks',[EcommerceProductController::class,'thanks']);
-Route::match('/stripe ',[EcommerceProductController::class,'getStripe']); 
-
+Route::get('/stripe ',[EcommerceProductController::class,'getStripe']); 
+Route::post('/stripe-payment',[EcommerceProductController::class,'getStripePayment']); 
 // Route::get('/checkout','EcommerceProductController@checkout');
 
 
