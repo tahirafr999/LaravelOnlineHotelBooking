@@ -232,7 +232,7 @@ public function getPlaceOrder(Request $request){
     if($payment_method == "cod"){
        return redirect('/thanks');
     }else{
-        redirect('/stripe');
+        return redirect('/stripe');
     }
 
 }
@@ -243,7 +243,10 @@ public function thanks(){
     return view('cod_thanks');
 }
 
-public function getStripe(){
+public function getStripe(Request $request){
+    $data = $request->all();
+    
+
     return view('stripe');
 }
 

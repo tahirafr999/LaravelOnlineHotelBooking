@@ -53,7 +53,7 @@
 
 <script>
     // Create a Stripe client.
-var stripe = Stripe('pk_test_G1V8Z9rSR95CHkFKDVxYlrxS');
+var stripe = Stripe('pk_test_51IUyrOF9adkmVg5fmm2OkMvbI34LKMDwJWvpHMrmlxWDsTQurwA3IzaCiFoyn1ewkUTpToEzWRfry1aQ8ZpRJHFN00xa0k1BO2');
 
 // Create an instance of Elements.
 var elements = stripe.elements();
@@ -76,7 +76,6 @@ var style = {
   }
 };
 
-// Create an instance of the card Element.
 var card = elements.create('card', {style: style});
 
 // Add an instance of the card Element into the `card-element` <div>.
