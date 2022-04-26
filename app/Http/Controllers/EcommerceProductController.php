@@ -12,6 +12,7 @@ use DataTables;
 use DB;
 use Session;
 use Response;
+use Stripe;
 use Illuminate\Support\Facades\Auth;
 class EcommerceProductController extends Controller
 {
@@ -249,8 +250,18 @@ public function getStripe(){
 
 public function getStripePayment(Request $request){
     $data = $request->all();
-    dd($data);
-    return view('stripe');
+    // dd($data);
+    // apikeys
+            \Stripe\Stripe::setApiKey(' sk_test_51IUyrOF9adkmVg5fOqQPCud0OPxc779lTJdhWMgI8CONVYdBrZk3IdunSKniMSNpF3GIRdqSAUhLtAc8oBNExyUw00eTWexYlN');
+            $token = $_POST['stripeToken'];
+            $charge = \Stripe\charge::Create([
+                
+              'amount' => $request->input('total_amount')*100,
+              'currency' => 'pkr',
+              'description' => $request->input('name'), 
+              'source' => $token,
+            ]);
+            return redirect()->back()->with('flash_message_success','Your Payment Successfully Done!');
 }
 
 }

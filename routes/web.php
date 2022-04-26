@@ -55,7 +55,7 @@ Route::post('/place-order',[EcommerceProductController::class,'getPlaceOrder']);
 Route::get('/thanks',[EcommerceProductController::class,'thanks']);
 Route::get('/stripe ',[EcommerceProductController::class,'getStripe']); 
 Route::post('/stripe-payment',[EcommerceProductController::class,'getStripePayment']); 
-// Route::get('/checkout','EcommerceProductController@checkout');
+
 
 
 

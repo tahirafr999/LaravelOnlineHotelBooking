@@ -14,12 +14,12 @@ class InstalledVersions
 private static $installed = array (
   'root' => 
   array (
-    'pretty_version' => '1.0.0+no-version-set',
-    'version' => '1.0.0.0',
+    'pretty_version' => 'dev-main',
+    'version' => 'dev-main',
     'aliases' => 
     array (
     ),
-    'reference' => NULL,
+    'reference' => '76e36f05b79dd5a97741ef7a2baa762563ad0f8b',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -439,12 +439,12 @@ private static $installed = array (
     ),
     'laravel/laravel' => 
     array (
-      'pretty_version' => '1.0.0+no-version-set',
-      'version' => '1.0.0.0',
+      'pretty_version' => 'dev-main',
+      'version' => 'dev-main',
       'aliases' => 
       array (
       ),
-      'reference' => NULL,
+      'reference' => '76e36f05b79dd5a97741ef7a2baa762563ad0f8b',
     ),
     'laravel/tinker' => 
     array (
@@ -967,6 +967,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '99732be0ddb3361e16ad77b68ba41efc8e979019',
+    ),
+    'stripe/stripe-php' => 
+    array (
+      'pretty_version' => 'v7.125.0',
+      'version' => '7.125.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '822c00aa380c10c2a3c55d105c5da72ad577b7c4',
     ),
     'swiftmailer/swiftmailer' => 
     array (
