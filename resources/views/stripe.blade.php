@@ -91,7 +91,7 @@ card.on('change', function(event) {
   }
 });
 
-// Handle form submission.
+// Handle form submission done and .
 var form = document.getElementById('payment-form');
 form.addEventListener('submit', function(event) {
   event.preventDefault();
