@@ -25,7 +25,7 @@
 
   <table width="100%">
     <tr>
-        <td valign="top"><img src="public/images/pearl.jpg" alt="" width="50"/></td>
+        <td valign="top"><img src="images/pearl.jpg" alt="" width="50"/></td>
         <td align="right">
             <h3>Shinra Electric power company</h3>
             <pre>

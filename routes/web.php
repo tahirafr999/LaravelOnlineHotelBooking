@@ -152,7 +152,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/invoices',function(){
 // return view('pdf');
 
-$pdf = PDF::loadView('pdf')->setOptions(['defaultFont' => 'sans-serif','isRemoteEnabled' => true]);
+$pdf = PDF::loadView('pdf')->setOptions(['defaultFont' => 'sans-serif']);
     return $pdf->download('invoice.pdf');
 });
 
