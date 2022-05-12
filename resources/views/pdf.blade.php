@@ -25,7 +25,7 @@
 
   <table width="100%">
     <tr>
-        <td valign="top"><img src="@php echo $pic @endphp " alt="" width="50"/></td>
+        <th valign="top"><img src="{{public_path("/images/tahir-logo.png")}}" alt="" width="50"/></th>
         <td align="right">
             <h3>Shinra Electric power company</h3>
             <pre>

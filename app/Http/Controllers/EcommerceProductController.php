@@ -265,16 +265,9 @@ public function getStripePayment(Request $request){
             return redirect()->back()->with('flash_message_success','Your Payment Successfully Done!');
 }
 
-public function pdf(Request $request){
+public function pdf(){
 
-    $path = base_path('tahirlogo.jpg');
-    $type = pathinfo($path, PATHINFO_EXTENSION);
-    $data = file_get_contents($path);
-    $pic = 'data:image/' .$type.';base64' .base64_decode($data); 
-
-    dd($pic);
-
-    $pdf = PDF::setOptions(['isHtml5ParserEnabled'=>true, 'isRemoteEnabled'=>true])->loadview('pdf',compact('pic'));
+    $pdf = PDF::loadView('pdf');
     return $pdf->download('invoices.pdf');
 }
 
