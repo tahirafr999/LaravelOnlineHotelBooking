@@ -149,13 +149,16 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // invoices
 
-Route::get('/invoices',function(){
+
+
+// Route::get('/invoices',function(){
 // return view('pdf');
 
-$pdf = PDF::loadView('pdf')->setOptions(['defaultFont' => 'sans-serif']);
-    return $pdf->download('invoice.pdf');
-});
+// $pdf = PDF::setOptions(['isHtml5ParserEnabled'=>true, 'isRemoteEnabled'=>true])->loadview('pdf',compact('pic'));
+//     return $pdf->download('invoice.pdf');
+// });
 
+Route::get('/invoices','EcommerceProductController@pdf');
 
 Route::get('/whatsapp',function(){
     return view('whats_app');
