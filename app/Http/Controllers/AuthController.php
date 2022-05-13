@@ -68,7 +68,7 @@ class AuthController extends Controller
     {  
         $request->validate([
             'company_name' => 'required',
-            'email' => 'required|email|unique:users',
+            'email' => 'required|email',
             'password' => 'required|min:6',
         ]);
            
