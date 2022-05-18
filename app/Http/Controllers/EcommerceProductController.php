@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Http;
 use App\EcommerceProduct;
 use App\Cart;
 use App\placeOrders;
@@ -271,4 +272,18 @@ public function pdf(){
     return $pdf->download('invoices.pdf');
 }
 
+public function getCryptoCurrency(Request $request){
+    $response = Http::get("https://api.nomics.com/v1/currencies/ticker?key=c0955495cec1f20bdb39fdd6095a0ba160ed3d4f&ids=BTC,ETH,XRP&interval=1d,30d&convert=EUR&platform-currency=ETH&per-page=100&page=1");
+    return view('crypto',['response'=>$response->json()]);
 }
+// curl "https://api.nomics.com/v1/currencies/ticker?key=c0955495cec1f20bdb39fdd6095a0ba160ed3d4f&ids=BTC,ETH,XRP&interval=1d,30d&convert=EUR&platform-currency=ETH&per-page=100&page=1"
+// https://api.nomics.com/v1/markets?key=c0955495cec1f20bdb39fdd6095a0ba160ed3d4f
+
+//  function getdata(){
+
+//      return ["name"];
+//  }
+
+}
+
+

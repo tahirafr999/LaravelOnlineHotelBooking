@@ -56,6 +56,9 @@ Route::get('/thanks',[EcommerceProductController::class,'thanks']);
 Route::get('/stripe ',[EcommerceProductController::class,'getStripe']); 
 Route::post('/stripe-payment',[EcommerceProductController::class,'getStripePayment']); 
 
+//crypto Currency
+Route::get('/crypto', [EcommerceProductController::class,'getCryptoCurrency']);
+
 
 
 
