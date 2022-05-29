@@ -2,6 +2,7 @@
 @section('content')
   <!-- Start Cart  -->
   <div class="cart-box-main">
+      <a href="{{URL('EcommerceProductController@getAllProducts')}}"></a>
             @if(Session::has('flash_message_error'))
             <div class="alert alert-sm alert-danger alert-block" role="alert">
                <button type="button" class="close" data-dismiss="alert" aria-label="Close">

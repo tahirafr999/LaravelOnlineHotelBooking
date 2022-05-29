@@ -273,7 +273,8 @@ public function pdf(){
 }
 
 public function getCryptoCurrency(Request $request){
-    $response = Http::get("https://api.nomics.com/v1/currencies/ticker?key=c0955495cec1f20bdb39fdd6095a0ba160ed3d4f&ids=BTC,ETH,XRP&interval=1d,30d&convert=EUR&platform-currency=ETH&per-page=100&page=1");
+    $response = Http::get("https://api.nomics.com/v1/currencies/ticker?key=c0955495cec1f20bdb39fdd6095a0ba160ed3d4f&ids=BTC,ETH,XRP&interval=1d,30d&convert=PKR&platform-currency=ETH&per-page=100&page=1");
+    
     return view('crypto',['response'=>$response->json()]);
 }
 // curl "https://api.nomics.com/v1/currencies/ticker?key=c0955495cec1f20bdb39fdd6095a0ba160ed3d4f&ids=BTC,ETH,XRP&interval=1d,30d&convert=EUR&platform-currency=ETH&per-page=100&page=1"
