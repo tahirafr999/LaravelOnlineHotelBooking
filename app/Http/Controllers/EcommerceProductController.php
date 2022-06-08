@@ -287,7 +287,8 @@ public function getCryptoCurrency(Request $request){
 
 
   public function getSuggestedProductDetails($id){
-dd($id);
+      $ProductId = $id;
+      
 }
 
 }
