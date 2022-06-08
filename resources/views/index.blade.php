@@ -54,7 +54,7 @@
             @if (Route::has('login'))
             @auth
             <div class="d-flex">
-            <a href="" class='btn btn-success'>View Details </a>
+            <a href="detailPageProduct/{{$Ecommerce->id}}" class='btn btn-success'>View Details </a>
             <button type='submit' data-id="{{$Ecommerce->id}}" class='btn btn-danger cartItemAdded'>Add to Cart</button>
             </div>
             @else

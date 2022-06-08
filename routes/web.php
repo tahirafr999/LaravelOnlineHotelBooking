@@ -44,6 +44,10 @@ Route::get('/get_product_details/{pro_id}',[EcommerceProductController::class,'g
 Route::post('update-product/{id}',[EcommerceProductController::class,'getupdateProduct']);
 Route::get('delete-product/{id}',[EcommerceProductController::class,'getdeleteHotel']);
 
+//product suggested details page
+Route::get('/detailPageProduct/{id}',[EcommerceProductController::class,'getSuggestedProductDetails']);
+
+
 // Cart Count 
 Route::post('/countCart/{id}',[EcommerceProductController::class,'getCountCart']);
 

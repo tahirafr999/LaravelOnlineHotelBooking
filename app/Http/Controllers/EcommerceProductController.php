@@ -285,6 +285,11 @@ public function getCryptoCurrency(Request $request){
 //      return ["name"];
 //  }
 
+
+  public function getSuggestedProductDetails($id){
+dd($id);
+}
+
 }
 
 
