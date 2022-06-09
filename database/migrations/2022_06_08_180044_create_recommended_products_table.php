@@ -15,7 +15,12 @@ class CreateRecommendedProductsTable extends Migration
     {
         Schema::create('recommended_products', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string("title");
+            $table->string("author");
+            $table->string("photo");
+            $table->string("category");
+            $table->string("product_description");
+            $table->string("product_price");
         });
     }
 

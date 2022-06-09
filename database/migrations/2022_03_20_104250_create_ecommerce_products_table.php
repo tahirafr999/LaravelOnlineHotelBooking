@@ -15,6 +15,7 @@ class CreateEcommerceProductsTable extends Migration
     {
         Schema::create('ecommerce_products', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('product_id')->length(11);
             $table->string("title");
             $table->string("author");
             $table->string("photo");
