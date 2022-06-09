@@ -39,6 +39,14 @@
 <!-- other jumbotron -->
 <div class="jumbotron" style="margin-top:-34px;">
 <h2 class="text-center">Online Shopping Mall</h2>
+@if(Session::has('flash_message_success'))
+<div class="alert alert-sm alert-success alert-block" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+    <strong>{!! session('flash_message_success') !!}</strong>
+</div>
+@endif
   <div class="row">
     @foreach($ecommerceProduct as $Ecommerce)
   <div class="col-md-3 col-sm-3 d-flex align-self-stretch">
