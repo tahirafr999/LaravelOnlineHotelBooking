@@ -290,9 +290,9 @@ public function getCryptoCurrency(Request $request){
       $ProductId = $id;
       $productList = DB::table('ecommerce_products')->where('id',$ProductId)->first();
     //   dd($productList);
-      DB::table('recommended_products')->insert(['product_id'=>$productList->id,'title'=>$productList->title,'author'=>$productList->author,'photo'=>$productList->photo,'category'=>$productList->category,'product_description'=>$productList->product_description,'product_price'=>$productList->product_price]);
+    //   DB::table('recommended_products')->insert(['product_id'=>$productList->id,'title'=>$productList->title,'author'=>$productList->author,'photo'=>$productList->photo,'category'=>$productList->category,'product_description'=>$productList->product_description,'product_price'=>$productList->product_price]);
 
-            return redirect()->back()->with('flash_message_success','Your Payment Successfully Done!');
+            return view('final_year_project/Category_Suggested/productDetails')->with('flash_message_success','Your Payment Successfully Done!');
 
 }
 
