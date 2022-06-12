@@ -289,15 +289,16 @@ public function getCryptoCurrency(Request $request){
   public function getSuggestedProductDetails($id){
       $ProductId = $id;
       $EcommerceProduct = DB::table('ecommerce_products')->where('id',$ProductId)->first();
-      $RecommededProduct = DB::table('recommended_products')->first(); 
-    //   dd($RecommededProduct);   
-      if(count((array)$RecommededProduct)>0){
-        DB::table('recommended_products')->insert(['product_id'=>$EcommerceProduct->id,'title'=>$EcommerceProduct->title,'author'=>$EcommerceProduct->author,'photo'=>$EcommerceProduct->photo,'category'=>$EcommerceProduct->category,'product_description'=>$EcommerceProduct->product_description,'product_price'=>$EcommerceProduct->product_price]);
-
+      $RecommededProduct = DB::table('recommended_products')->where('product_id',$ProductId)->get(); 
+    //   echo count($RecommededProduct); die;
+      if(count($RecommededProduct)>0){
+        DB::table('recommended_products')
+        ->where('product_id', $id)  // find your user by their email
+        ->limit(1)  // optional - to ensure only one record is updated.
+        ->update(array('category_clicks' => $RecommededProduct->category_clicks+(int)1)); 
       }else{
-echo "hello";
+        DB::table('recommended_products')->insert(['product_id'=>$EcommerceProduct->id,'title'=>$EcommerceProduct->title,'author'=>$EcommerceProduct->author,'photo'=>$EcommerceProduct->photo,'category'=>$EcommerceProduct->category,'product_description'=>$EcommerceProduct->product_description,'product_price'=>$EcommerceProduct->product_price]);
       }
-
             return view('final_year_project/Category_Suggested/productDetails')->with('flash_message_success','Your Payment Successfully Done!');
 
 }
