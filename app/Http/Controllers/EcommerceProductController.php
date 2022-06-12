@@ -295,7 +295,7 @@ public function getCryptoCurrency(Request $request){
         DB::table('recommended_products')
         ->where('product_id', $id)  // find your user by their email
         ->limit(1)  // optional - to ensure only one record is updated.
-        ->update(array('category_clicks' => $RecommededProduct->category_clicks+(int)1)); 
+        ->update(array('category_clicks' => \DB::raw('category_clicks + 1'))); 
       }else{
         DB::table('recommended_products')->insert(['product_id'=>$EcommerceProduct->id,'title'=>$EcommerceProduct->title,'author'=>$EcommerceProduct->author,'photo'=>$EcommerceProduct->photo,'category'=>$EcommerceProduct->category,'product_description'=>$EcommerceProduct->product_description,'product_price'=>$EcommerceProduct->product_price]);
       }
