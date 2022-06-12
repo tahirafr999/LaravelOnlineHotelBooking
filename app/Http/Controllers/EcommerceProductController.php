@@ -288,9 +288,15 @@ public function getCryptoCurrency(Request $request){
 
   public function getSuggestedProductDetails($id){
       $ProductId = $id;
-      $productList = DB::table('ecommerce_products')->where('id',$ProductId)->first();
-    //   dd($productList);
-    //   DB::table('recommended_products')->insert(['product_id'=>$productList->id,'title'=>$productList->title,'author'=>$productList->author,'photo'=>$productList->photo,'category'=>$productList->category,'product_description'=>$productList->product_description,'product_price'=>$productList->product_price]);
+      $EcommerceProduct = DB::table('ecommerce_products')->where('id',$ProductId)->first();
+      $RecommededProduct = DB::table('recommended_products')->first(); 
+    //   dd($RecommededProduct);   
+      if(count((array)$RecommededProduct)>0){
+        DB::table('recommended_products')->insert(['product_id'=>$EcommerceProduct->id,'title'=>$EcommerceProduct->title,'author'=>$EcommerceProduct->author,'photo'=>$EcommerceProduct->photo,'category'=>$EcommerceProduct->category,'product_description'=>$EcommerceProduct->product_description,'product_price'=>$EcommerceProduct->product_price]);
+
+      }else{
+echo "hello";
+      }
 
             return view('final_year_project/Category_Suggested/productDetails')->with('flash_message_success','Your Payment Successfully Done!');
 
