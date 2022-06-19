@@ -66,11 +66,12 @@ class AuthController extends Controller
      */
     public function postRegistration(Request $request)
     {  
-        $request->validate([
-            'company_name' => 'required',
-            'email' => 'required|email',
-            'password' => 'required|min:6',
-        ]);
+        // $request->validate([
+        //     'company_name' => 'required',
+        //     'email' => 'required|email',
+        //     'password' => 'required|min:6',
+        // ]);
+        
            
         $data = $request->all();
         $check = $this->create($data);
@@ -83,7 +84,7 @@ class AuthController extends Controller
         $email = $request->email;
     
          
-        Mail::to($email)->send(new SendMail($MailData));
+        // Mail::to($email)->send(new SendMail($MailData));
         return redirect('login')->with('success', 'Thanks for contacting us!');
     }
     

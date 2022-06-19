@@ -15,7 +15,9 @@ use Session;
 use Response;
 use Stripe;
 use PDF;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Auth;
+use App\Imports\UsersImport;
 class EcommerceProductController extends Controller
 {
     public function addEcommerceProduct(Request $request){
@@ -302,6 +304,22 @@ public function getCryptoCurrency(Request $request){
             return view('final_year_project/Category_Suggested/productDetails')->with('flash_message_success','Your Payment Successfully Done!');
 
 }
+
+    public function importUsers(){
+        return view('excel.import');
+    }
+
+    public function uploadUsers(Request $request){
+        $file = $request->file('file');
+         Excel::import(new UsersImport, $file);
+        
+        return view('excel.import')->with('success', 'User Imported Successfully');
+
+    }
+
+    public function export(){
+
+    }
 
 }
 

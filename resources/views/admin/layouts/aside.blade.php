@@ -95,6 +95,24 @@
             </ul>
           </li>
 
+          <li class="nav-item has-treeview menu-open mt-3">
+            <a href="#" class="nav-link ">
+            <i class="fas fa-box"></i>
+              <p class="ml-2">
+               Excel Data
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="import-users" class="nav-link ">
+                <i class="fa fa-plus-circle"></i>
+                  <p class="ml-2">Add Excel Data</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
           
           <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link ">

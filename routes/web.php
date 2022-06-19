@@ -64,6 +64,12 @@ Route::post('/stripe-payment',[EcommerceProductController::class,'getStripePayme
 Route::get('/crypto', [EcommerceProductController::class,'getCryptoCurrency']);
 
 
+// excel data upload
+Route::get('/import-users', [EcommerceProductController::class,'importUsers'])->name('import');
+Route::post('/upload-users', [EcommerceProductController::class, 'uploadUsers'])->name('upload');
+
+Route::get('export/', [EcommerceProductController::class, 'export'])->name('export');
+
 
 
     // products
@@ -143,7 +149,7 @@ Auth::routes(['verify' => true]);
 
 Route::get('login/{MailData}',[AuthController::class, 'verify_token']);
 
-Route::get('login', [AuthController::class, 'index'])->name('login');
+Route::get('login', [AuthController::class, 'index'])->name('login');   
 Route::post('submit-login', [AuthController::class, 'postLogin'])->name('login.post'); 
 Route::get('registration', [AuthController::class, 'registration'])->name('register');
 Route::post('submit-registration', [AuthController::class, 'postRegistration'])->name('register.post'); 

@@ -14,5 +14,8 @@ class EcommerceProduct extends Model
         'author',
         'tags',
         'product_price',
+        'series',
       ];
+
+      
 }

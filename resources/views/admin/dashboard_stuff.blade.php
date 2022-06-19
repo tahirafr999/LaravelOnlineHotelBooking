@@ -70,4 +70,11 @@
 
 </div>
 </section>
+
+
+<section style="margin:10px;padding:10px;">
+
+   
+<div id="chart"></div>
+</section>
 @endsection
