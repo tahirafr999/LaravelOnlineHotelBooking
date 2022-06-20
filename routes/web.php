@@ -146,7 +146,6 @@ Route::post('hotel_data',[HotelController::class,'store']);
 
 Auth::routes(['verify' => true]); 
 
-
 Route::get('login/{MailData}',[AuthController::class, 'verify_token']);
 
 Route::get('login', [AuthController::class, 'index'])->name('login');   

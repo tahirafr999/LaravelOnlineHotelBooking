@@ -47,6 +47,8 @@ class AuthController extends Controller
             'username' => 'required',
             'password' => 'required',
         ]);
+
+        Session::put("username",$request->username);
    
         $credentials = $request->only('username', 'password');
 
