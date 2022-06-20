@@ -299,8 +299,20 @@ public function getCryptoCurrency(Request $request){
         ->where('product_id', $id)  
         ->limit(1)
         ->update(array('category_clicks' => \DB::raw('category_clicks + 1'))); 
+
+        DB::table('all_click_on_categories_table')
+        ->where('product_id', $id)  
+        ->limit(1)
+        ->update(array('clicksOnCategory' => \DB::raw('clicksOnCategory + 1'))); 
       }else{
         DB::table('recommended_products')->insert(['product_id'=>$EcommerceProduct->id,'username'=>$userName,'title'=>$EcommerceProduct->title,'author'=>$EcommerceProduct->author,'photo'=>$EcommerceProduct->photo,'category'=>$EcommerceProduct->category,'product_description'=>$EcommerceProduct->product_description,'product_price'=>$EcommerceProduct->product_price]);
+        DB::table('all_click_on_categories_table')
+        ->insert(['product_id'=>$EcommerceProduct->id,
+        'username'=>$userName,'title'=>$EcommerceProduct->title,'author'=>$EcommerceProduct->author,
+        'photo'=>$EcommerceProduct->photo,'category'=>$EcommerceProduct->category,
+        'product_description'=>$EcommerceProduct->product_description,
+        'product_price'=>$EcommerceProduct->product_price]);
+
       }
             return view('final_year_project/Category_Suggested/productDetails')->with('flash_message_success','Your Payment Successfully Done!');
 
