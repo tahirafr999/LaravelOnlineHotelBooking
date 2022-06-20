@@ -290,14 +290,14 @@ public function getCryptoCurrency(Request $request){
 
   public function getSuggestedProductDetails($id){
       $ProductId = $id;
+      $userName = Session::get("username");
       $EcommerceProduct = DB::table('ecommerce_products')->where('id',$ProductId)->first();
       $RecommededProduct = DB::table('recommended_products')->where('product_id',$ProductId)->get(); 
     //   echo count($RecommededProduct); die;
-    $userName = Session::get("username");
       if(count($RecommededProduct)>0){
         DB::table('recommended_products')
-        ->where('product_id', $id)  // find your user by their email
-        ->limit(1)  // optional - to ensure only one record is updated.
+        ->where('product_id', $id)  
+        ->limit(1)
         ->update(array('category_clicks' => \DB::raw('category_clicks + 1'))); 
       }else{
         DB::table('recommended_products')->insert(['product_id'=>$EcommerceProduct->id,'username'=>$userName,'title'=>$EcommerceProduct->title,'author'=>$EcommerceProduct->author,'photo'=>$EcommerceProduct->photo,'category'=>$EcommerceProduct->category,'product_description'=>$EcommerceProduct->product_description,'product_price'=>$EcommerceProduct->product_price]);

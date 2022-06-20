@@ -23,7 +23,7 @@ class CreateRecommendedProductsTable extends Migration
             $table->string("category");
             $table->string("product_description");
             $table->string("product_price");
-            $table->bigInteger('category_clicks')->length(11)->default('0');
+            $table->bigInteger('category_clicks')->length(11)->default('1');
         });
     }
 
