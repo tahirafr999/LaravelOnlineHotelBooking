@@ -28,6 +28,7 @@ return array(
     'App\\Http\\Controllers\\EcommerceProductController' => $baseDir . '/app/Http/Controllers/EcommerceProductController.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
     'App\\Http\\Controllers\\HotelController' => $baseDir . '/app/Http/Controllers/HotelController.php',
+    'App\\Http\\Controllers\\PHPMailerController' => $baseDir . '/app/Http/Controllers/PHPMailerController.php',
     'App\\Http\\Controllers\\RegistrationController' => $baseDir . '/app/Http/Controllers/RegistrationController.php',
     'App\\Http\\Controllers\\productController' => $baseDir . '/app/Http/Controllers/productController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',

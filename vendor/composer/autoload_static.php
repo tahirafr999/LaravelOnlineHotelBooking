@@ -602,6 +602,7 @@ class ComposerStaticInit46a2db0aa7bfd7589272f7647489a061
         'App\\Http\\Controllers\\EcommerceProductController' => __DIR__ . '/../..' . '/app/Http/Controllers/EcommerceProductController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\HotelController' => __DIR__ . '/../..' . '/app/Http/Controllers/HotelController.php',
+        'App\\Http\\Controllers\\PHPMailerController' => __DIR__ . '/../..' . '/app/Http/Controllers/PHPMailerController.php',
         'App\\Http\\Controllers\\RegistrationController' => __DIR__ . '/../..' . '/app/Http/Controllers/RegistrationController.php',
         'App\\Http\\Controllers\\productController' => __DIR__ . '/../..' . '/app/Http/Controllers/productController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
