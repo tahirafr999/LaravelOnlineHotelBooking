@@ -76,14 +76,30 @@ class productController extends Controller
         $username = Session::get('username');
         // $ecommerceProduct = EcommerceProduct::all();
         $userList = DB::table('users')->where('username',$username)->first();
-        $recommenedProductList = DB::table('recommended_products')->where('user_id',$userList->id)
-        // ->where('category_clicks', DB::raw("(select max(`category_clicks`) from recommended_products)"))
-        ->orderBy('category_clicks', 'DESC')
-        // orWhere('category_clicks = (select max(`category_clicks`) from recommended_products)')
-        // DB::table('orders')->max('id');
-        // ->whereRaw('select max(`category_clicks`) from  recommended_products where `user_id` = 21')
-        ->get();
-        dd($recommenedProductList);
+        // DD($userList);
+        $recommenedList = DB::table('recommended_products')->where('user_id',  $userList->id)->get();
+        // DD($recommenedList);
+        if(count($recommenedList)>0){
+            $recommenedProductList = DB::table('recommended_products')->where('user_id',$userList->id)
+            // ->where('category_clicks', DB::raw("(select max(`category_clicks`) from recommended_products)"))
+            ->orderBy('category_clicks', 'DESC')
+            // orWhere('category_clicks = (select max(`category_clicks`) from recommended_products)')
+            // DB::table('orders')->max('id');
+            // ->whereRaw('select max(`category_clicks`) from  recommended_products where `user_id` = 21')
+            ->get();
+            dd($recommenedProductList);
+        }else{
+            $recommenedProductListSecond = DB::table('recommended_products')->where('user_id', "!=",  $userList->id)->get();
+            dd($recommenedProductListSecond);
+        }
+        // $recommenedProductList = DB::table('recommended_products')->where('user_id',$userList->id)
+        // // ->where('category_clicks', DB::raw("(select max(`category_clicks`) from recommended_products)"))
+        // ->orderBy('category_clicks', 'DESC')
+        // // orWhere('category_clicks = (select max(`category_clicks`) from recommended_products)')
+        // // DB::table('orders')->max('id');
+        // // ->whereRaw('select max(`category_clicks`) from  recommended_products where `user_id` = 21')
+        // ->get();
+        // dd($recommenedProductList);
 
         return view('index',compact('frond_data', 'ecommerceProduct'));
     }
