@@ -302,12 +302,12 @@ public function getCryptoCurrency(Request $request){
         ->update(array('category_clicks' => \DB::raw('category_clicks + 1'))); 
 
         DB::table('all_click_on_categories_table')
-        ->where('product_id', 3)  
+        ->where('product_id', $ProductId)  
         ->limit(1)
         ->update(array('clicksOnCategory' => \DB::raw('clicksOnCategory + 1'))); 
       }else{
-        DB::table('recommended_products')->insert(['product_id'=>$EcommerceProduct->id,'username'=>$userList->username,'title'=>$EcommerceProduct->title,'author'=>$EcommerceProduct->author,'photo'=>$EcommerceProduct->photo,'category'=>$EcommerceProduct->category,'product_description'=>$EcommerceProduct->product_description,'product_price'=>$EcommerceProduct->product_price]);
-        DB::table('all_click_on_categories_table')->insert(['user_id'=>1,'product_id'=>1,'category_id'=>1,'category_name'=>"shoes"]);
+        DB::table('recommended_products')->insert(['product_id'=>$EcommerceProduct->id,'user_id'=>$userList->id,'title'=>$EcommerceProduct->title,'author'=>$EcommerceProduct->author,'photo'=>$EcommerceProduct->photo,'category'=>$EcommerceProduct->category,'product_description'=>$EcommerceProduct->product_description,'product_price'=>$EcommerceProduct->product_price]);
+        DB::table('all_click_on_categories_table')->insert(['user_id'=>$userList->id,'product_id'=>$ProductId,'category_id'=>1,'category_name'=>"shoes"]);
 
       }
             return view('final_year_project/Category_Suggested/productDetails')->with('flash_message_success','Your Payment Successfully Done!');

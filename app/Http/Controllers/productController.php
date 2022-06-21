@@ -9,6 +9,8 @@ use Validator;
 use Storage;
 use GuzzleHttp;
 use App\EcommerceProduct;
+use DB;
+use Session;
 
 
 class productController extends Controller
@@ -71,7 +73,14 @@ class productController extends Controller
 
     public function FetchDataFrondend(){
         $frond_data = product::all();
-        $ecommerceProduct = EcommerceProduct::all();
+        $username = Session::get('username');
+        // $ecommerceProduct = EcommerceProduct::all();
+        $userList = DB::table('users')->where('username',$username)->first();
+        $recommenedProductList = DB::table('recommended_products')->where('user_id',$userList->id)
+        // ->whereRaw('select max(`category_clicks`) from  recommended_products where `user_id` = 21')
+        ->get();
+        dd($recommenedProductList);
+
         return view('index',compact('frond_data', 'ecommerceProduct'));
     }
 
