@@ -77,6 +77,10 @@ class productController extends Controller
         // $ecommerceProduct = EcommerceProduct::all();
         $userList = DB::table('users')->where('username',$username)->first();
         $recommenedProductList = DB::table('recommended_products')->where('user_id',$userList->id)
+        // ->where('category_clicks', DB::raw("(select max(`category_clicks`) from recommended_products)"))
+        ->orderBy('category_clicks', 'DESC')
+        // orWhere('category_clicks = (select max(`category_clicks`) from recommended_products)')
+        // DB::table('orders')->max('id');
         // ->whereRaw('select max(`category_clicks`) from  recommended_products where `user_id` = 21')
         ->get();
         dd($recommenedProductList);
