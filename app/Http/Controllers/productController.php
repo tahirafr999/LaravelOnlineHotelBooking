@@ -80,17 +80,17 @@ class productController extends Controller
         $recommenedList = DB::table('recommended_products')->where('user_id',  $userList->id)->get();
         // DD($recommenedList);
         if(count($recommenedList)>0){
-            $recommenedProductList = DB::table('recommended_products')->where('user_id',$userList->id)
+            $ecommerceProduct = DB::table('recommended_products')->where('user_id',$userList->id)
             // ->where('category_clicks', DB::raw("(select max(`category_clicks`) from recommended_products)"))
             ->orderBy('category_clicks', 'DESC')
             // orWhere('category_clicks = (select max(`category_clicks`) from recommended_products)')
             // DB::table('orders')->max('id');
             // ->whereRaw('select max(`category_clicks`) from  recommended_products where `user_id` = 21')
             ->get();
-            dd($recommenedProductList);
+            // dd($recommenedProductList);
         }else{
-            $recommenedProductListSecond = DB::table('recommended_products')->where('user_id', "!=",  $userList->id)->get();
-            dd($recommenedProductListSecond);
+            $ecommerceProduct = DB::table('recommended_products')->where('user_id', "!=",  $userList->id)->get();
+            // dd($recommenedProductListSecond);
         }
         // $recommenedProductList = DB::table('recommended_products')->where('user_id',$userList->id)
         // // ->where('category_clicks', DB::raw("(select max(`category_clicks`) from recommended_products)"))
@@ -101,7 +101,8 @@ class productController extends Controller
         // ->get();
         // dd($recommenedProductList);
 
-        return view('index',compact('frond_data', 'ecommerceProduct'));
+        // return view('index',compact('frond_data','recommenedProductListSecond'));
+        return view("index", ["ecommerceProduct"=>$ecommerceProduct,"frond_data"=>$frond_data]);
     }
 
     public function EditHotel($id){
