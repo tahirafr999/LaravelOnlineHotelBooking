@@ -105,6 +105,8 @@ class productController extends Controller
         return view("index", ["ecommerceProduct"=>$ecommerceProduct,"frond_data"=>$frond_data]);
     }
 
+
+    // hello
     public function EditHotel($id){
         $hotel = product::find($id);
         if($hotel){
